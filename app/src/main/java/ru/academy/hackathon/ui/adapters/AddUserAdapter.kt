@@ -7,7 +7,7 @@ import ru.academy.hackathon.R
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.ui.addusers.AddUserHolder
 
-class AddUserAdapter(private var users: MutableList<User>) : RecyclerView.Adapter<AddUserHolder>() {
+class AddUserAdapter(private var users:List<User> = emptyList()) : RecyclerView.Adapter<AddUserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         AddUserHolder(
             view = LayoutInflater.from(parent.context)
@@ -19,7 +19,7 @@ class AddUserAdapter(private var users: MutableList<User>) : RecyclerView.Adapte
 
     override fun getItemCount() = users.size
 
-    fun bindUsers(users: MutableList<User>) {
+    fun bindUsers(users: List<User>) {
         this.users = users
     }
 }

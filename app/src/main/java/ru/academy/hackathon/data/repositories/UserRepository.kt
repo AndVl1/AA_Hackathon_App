@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import ru.academy.hackathon.data.models.User
 
 interface UserRepository {
-    suspend fun getAllUsers() : LiveData<List<User>>
+    fun getAllUsers() : LiveData<List<User>>
 
     suspend fun getUserById(id: Int): User
 
