@@ -5,12 +5,9 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.databinding.AddUserItemBinding
 
-class AddUserHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    private var _binding: AddUserItemBinding? = null
-    private val binding get() = _binding!!
+class AddUserHolder(val itemBinding: AddUserItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
     fun bind(user: User) {
-        binding.addUserName.text = user.name
+        itemBinding.addUserName.text = user.name
     }
 }

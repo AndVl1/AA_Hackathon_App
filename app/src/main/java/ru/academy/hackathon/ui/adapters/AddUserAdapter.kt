@@ -5,13 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.academy.hackathon.R
 import ru.academy.hackathon.data.models.User
+import ru.academy.hackathon.databinding.AddUserItemBinding
 import ru.academy.hackathon.ui.addusers.AddUserHolder
 
-class AddUserAdapter(private var users:List<User> = emptyList()) : RecyclerView.Adapter<AddUserHolder>() {
+class AddUserAdapter(private var users: List<User> = emptyList()) :
+    RecyclerView.Adapter<AddUserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         AddUserHolder(
-            view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.add_user_item, parent, false)
+            itemBinding = AddUserItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
 
     override fun onBindViewHolder(holder: AddUserHolder, position: Int) =
@@ -20,6 +25,6 @@ class AddUserAdapter(private var users:List<User> = emptyList()) : RecyclerView.
     override fun getItemCount() = users.size
 
     fun bindUsers(users: List<User>) {
-        this.users = users
+        this.users= users
     }
 }
