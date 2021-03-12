@@ -1,4 +1,3 @@
-
 @ECHO OFF
 TITLE Check style with Detekt
 SET ROOT_FOLDER=build\bin
