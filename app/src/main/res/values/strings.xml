@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Hackathon App</string>
+    <string name="Start_game">Начать игру</string>
+    <string name="Rules">Правила игры</string>
 </resources>
