@@ -7,14 +7,17 @@ import androidx.navigation.Navigation
 import ru.academy.hackathon.ui.addusers.AddUserFragment
 import ru.academy.hackathon.ui.Router
 import ru.academy.hackathon.ui.addusers.CallbacksAddUserFragment
+import ru.academy.hackathon.ui.game.CallbacksGameFragment
 import ru.academy.hackathon.ui.main.CallbacksMainFragment
 import ru.academy.hackathon.ui.main.ViewModelCategory
 import ru.academy.hackathon.ui.main.fragmentCategory.CallbacksFragmentCategory
 import ru.academy.hackathon.ui.main.fragmentCategory.FragmentCategory
 import ru.academy.hackathon.ui.rules.CallbacksRulesFragment
+import ru.academy.hackathon.ui.score.CallbacksScoreFragments
 
 class MainActivity : AppCompatActivity(), Router, CallbacksAddUserFragment, CallbacksRulesFragment,
-    CallbacksMainFragment, CallbacksFragmentCategory {
+    CallbacksMainFragment, CallbacksFragmentCategory, CallbacksScoreFragments,
+    CallbacksGameFragment {
 
     private lateinit var navController: NavController
 
@@ -45,14 +48,18 @@ class MainActivity : AppCompatActivity(), Router, CallbacksAddUserFragment, Call
     }
 
     override fun openEndGame() {
-        //TODO
+        navController.navigate(R.id.action_gameFragment_to_scoreFragments)
     }
 
     override fun openGameWithFragmentCategory() {
         navController.navigate(R.id.action_fragmentCategory_to_gameFragment)
     }
 
-    companion object {
-        public lateinit var viewModelCategory: ViewModelCategory
+    override fun openMainFragmentWithScoreFragments() {
+        navController.navigate(R.id.action_scoreFragments_to_mainFragment)
+    }
+
+    override fun openAddUserFragmentWithScoreFragments() {
+        navController.navigate(R.id.action_scoreFragments_to_addUserFragment)
     }
 }

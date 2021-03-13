@@ -24,7 +24,11 @@
     <fragment
             android:id="@+id/gameFragment"
             android:name="ru.academy.hackathon.ui.game.GameFragment"
-            android:label="GameFragment" />
+            android:label="GameFragment">
+        <action
+                android:id="@+id/action_gameFragment_to_scoreFragments"
+                app:destination="@id/scoreFragments" />
+    </fragment>
     <fragment
             android:id="@+id/addUserFragment"
             android:name="ru.academy.hackathon.ui.addusers.AddUserFragment"
@@ -43,6 +47,20 @@
             android:label="FragmentCategory">
         <action
                 android:id="@+id/action_fragmentCategory_to_gameFragment"
-                app:destination="@id/gameFragment" />
+                app:destination="@id/gameFragment">
+
+        </action>
+    </fragment>
+    <fragment
+            android:id="@+id/scoreFragments"
+            android:name="ru.academy.hackathon.ui.score.ScoreFragments"
+            android:label="ScoreFragments">
+
+        <action
+                android:id="@+id/action_scoreFragments_to_mainFragment"
+                app:destination="@id/mainFragment" />
+        <action
+                android:id="@+id/action_scoreFragments_to_addUserFragment"
+                app:destination="@id/addUserFragment" />
     </fragment>
 </navigation>

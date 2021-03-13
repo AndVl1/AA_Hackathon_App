@@ -1,6 +1,7 @@
 package ru.academy.hackathon.ui.game
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,10 @@ import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 import ru.academy.hackathon.ui.viewmodels.GameViewModel
 import java.time.LocalDate
 
+interface CallbacksGameFragment{
+    fun openEndGame()
+}
+
 class GameFragment : Fragment() {
 
     private var _binding: GameUsersBinding? = null
@@ -25,6 +30,8 @@ class GameFragment : Fragment() {
 
     private lateinit var usersList: List<User>
 
+    private var callback : CallbacksGameFragment? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,6 +39,11 @@ class GameFragment : Fragment() {
     ): View? {
         _binding = GameUsersBinding.inflate(inflater)
         return _binding?.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is CallbacksGameFragment) callback=context
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +72,7 @@ class GameFragment : Fragment() {
         }
 
         binding.endFant.setOnClickListener {
-
+            callback?.openEndGame()
         }
     }
 
