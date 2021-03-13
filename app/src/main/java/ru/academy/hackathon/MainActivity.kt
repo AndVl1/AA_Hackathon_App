@@ -3,10 +3,7 @@ package ru.academy.hackathon
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import ru.academy.hackathon.ui.main.CategoryFant
-import ru.academy.hackathon.ui.main.FragmentCategory
-import ru.academy.hackathon.ui.main.FragmentCategoryListPage
-import ru.academy.hackathon.ui.main.MainFragment
+import ru.academy.hackathon.ui.main.fragmentCategory.FragmentCategory
 import ru.academy.hackathon.ui.main.ViewModelCategory
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +19,9 @@ class MainActivity : AppCompatActivity() {
 
 		if (savedInstanceState == null) {
 			supportFragmentManager.beginTransaction()
-					.replace(R.id.container, FragmentCategory())
+					.replace(R.id.container,
+                        FragmentCategory()
+                    )
 					.commitNow()
 		}
 	}

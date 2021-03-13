@@ -1,15 +1,12 @@
-package ru.academy.hackathon.ui.main
+package ru.academy.hackathon.ui.main.fragmentCategory
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.viewpager.widget.PagerTabStrip
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.transition.Hold
 import ru.academy.hackathon.R
 
 class FragmentCategory () : Fragment() {
@@ -26,7 +23,10 @@ class FragmentCategory () : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewPager: ViewPager = view.findViewById(R.id.viewpager)
-        viewPager.adapter = FragmentPageAdapterTab(getChildFragmentManager())
+        viewPager.adapter =
+            FragmentPageAdapterTab(
+                getChildFragmentManager()
+            )
         viewPager.currentItem = 0
         val pagerTabStrip: PagerTabStrip = view.findViewById(R.id.pagerTabStrip)
         pagerTabStrip.drawFullUnderline = false

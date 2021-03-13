@@ -1,7 +1,7 @@
-package ru.academy.hackathon.ui.main
+package ru.academy.hackathon.data.repository
 
 import android.util.Log
-import ru.academy.hackathon.R
+import ru.academy.hackathon.data.Fant
 
 class RepositoryCategory {
     var fants: MutableList<Fant> = mutableListOf()
@@ -45,11 +45,52 @@ class RepositoryCategory {
                 "push_up.webp", 1, true
             )
         )
+        fants.add(
+            Fant(
+                1, 3, "Стать инициатором хоровода вокруг дерева",
+                "push_up.webp", 1, false
+            )
+        )
+
+        fants.add(
+            Fant(
+                2, 3, "Отжаться 15 раз",
+                "push_up.webp", 1, true
+            )
+        )
+        fants.add(
+            Fant(
+                3, 3, "Изобразить как играет футболист",
+                "push_up.webp", 1, true
+            )
+        )
+        fants.add(
+            Fant(
+                4, 3, "Стать инициатором хоровода вокруг дерева",
+                "push_up.webp", 1, false
+            )
+        )
+
+        fants.add(
+            Fant(
+                1, 4, "Отжаться 15 раз",
+                "push_up.webp", 1, true
+            )
+        )
+        fants.add(
+            Fant(
+                2, 4, "Изобразить как играет футболист",
+                "push_up.webp", 1, true
+            )
+        )
     }
 
-public fun  getFantsList(idCategory: Long):List<Fant> {
+public fun  getFantsList(idCategory: Int):List<Fant> {
+    Log.v("getFantsList","idCategory: ${idCategory}")
+
+    var fants: List<Fant>  =  fants.filter { it -> it .idCategory == idCategory}
     Log.v("getFantsList","${fants.size}")
 
-    return fants.filter { it -> it.id == idCategory }
+    return fants
 }
 }

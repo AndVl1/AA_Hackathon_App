@@ -5,17 +5,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import ru.academy.hackathon.data.CategoryFant
 
-import kotlinx.coroutines.launch
+import ru.academy.hackathon.data.Fant
+import ru.academy.hackathon.data.repository.RepositoryCategory
 
 class ViewModelCategory() : ViewModel() {
     private var scope = viewModelScope
-    private var rep: RepositoryCategory = RepositoryCategory();
+    private var rep: RepositoryCategory =
+        RepositoryCategory();
     private val mutableState =
         MutableLiveData<ViewModelCategoryState>(ViewModelCategoryState.Loading)
     val stateLiveData: LiveData<ViewModelCategoryState> get() = mutableState
 
     fun loadCategoryList(category: CategoryFant): List<Fant> {
+        Log.v("loadCategoryList","idCategory + ${category.idCategory}")
+
         var fants: List<Fant> = listOf()
         fants = rep.getFantsList(category.idCategory)
         Log.v("loadCategoryList","${fants.size}")

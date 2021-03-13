@@ -1,4 +1,4 @@
-package ru.academy.hackathon.ui.main
+package ru.academy.hackathon.ui.main.fragmentCategory
 
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerTabStrip
 import ru.academy.hackathon.MainActivity
 import ru.academy.hackathon.R
+import ru.academy.hackathon.data.CategoryFant
+import ru.academy.hackathon.data.Fant
+import ru.academy.hackathon.ui.main.ViewModelCategory
 
 
 class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
@@ -42,25 +45,20 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
         listRecyclerView = view.findViewById<RecyclerView>(R.id.fcRecyclerView)
         listRecyclerView?.layoutManager = GridLayoutManager(activity, 2)
         listRecyclerView?.adapter =
-            CategoryViewAdapter { item -> doOnClick(item) }
-//
-//        val adapter = TrackAdapter(context, trackSummaryList, this)
-//        recyclerView.setLayoutManager(
-//            LinearLayoutManager(
-//                activity,
-//                RecyclerView.VERTICAL,
-//                false
-//            )
-//        )
-//        recyclerView.setAdapter(adapter)
+            CategoryViewAdapter { item ->
+                doOnClick(
+                    item
+                )
+            }
+
     }
 
     fun doOnClick(id: Long) {
-        viewModel.stateLiveData.value?.let {
-            getCategory(it, id)?.let {
-                // смена выбора фанта
-            }
-        }
+//        viewModel.stateLiveData.value?.let {
+//            getCategory(it, id)?.let {
+//                // смена выбора фанта
+//            }
+//        }
     }
 
     private fun updateData(fantList: List<Fant>) {
@@ -76,6 +74,7 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
             is ViewModelCategory.ViewModelCategoryState.Loading ->
                 Log.v("setState", "Loading")
 //                progressBar.visibility = ProgressBar.VISIBLE
+
             is ViewModelCategory.ViewModelCategoryState.Success -> {
                 Log.v("setState", "Success")
 

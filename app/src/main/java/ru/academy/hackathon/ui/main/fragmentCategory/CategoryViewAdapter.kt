@@ -1,4 +1,4 @@
-package ru.academy.hackathon.ui.main
+package ru.academy.hackathon.ui.main.fragmentCategory
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.academy.hackathon.R
 import com.bumptech.glide.Glide
-
+import ru.academy.hackathon.data.Fant
 
 
 class CategoryViewAdapter(val someClickListener: (Long) -> Unit) :
@@ -45,7 +45,7 @@ class CategoryViewAdapter(val someClickListener: (Long) -> Unit) :
             textView.text = fant.textTask
             Glide
                 .with(itemView)
-                .load(fant.imageName)
+                .load(R.drawable.push_up)
                 .into(this.imageView)
             checkTask.isChecked = fant.checkTask
         }

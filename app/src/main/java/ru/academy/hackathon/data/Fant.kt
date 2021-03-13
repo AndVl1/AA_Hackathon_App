@@ -1,9 +1,9 @@
-package ru.academy.hackathon.ui.main
+package ru.academy.hackathon.data
 
 import android.os.Parcelable
 
 data class Fant(
-    var id: Long,
+    var id: Int,
     var idCategory: Int,
     var textTask: String,
     var imageName: String,

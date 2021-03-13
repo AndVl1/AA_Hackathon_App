@@ -1,9 +1,9 @@
-package ru.academy.hackathon.ui.main
+package ru.academy.hackathon.data
 
 import android.os.Parcelable
 
 
-enum class CategoryFant(val idCategory: Long, val text:String)  {
+enum class CategoryFant(val idCategory: Int, val text:String)  {
     Category1(1,"уличные"),
     Category2(2,"sport"),
     Category3(3,"30"),
