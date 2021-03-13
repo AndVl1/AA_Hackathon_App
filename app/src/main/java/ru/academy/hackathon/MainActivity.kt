@@ -8,6 +8,7 @@ import ru.academy.hackathon.ui.addusers.AddUserFragment
 import ru.academy.hackathon.ui.Router
 import ru.academy.hackathon.ui.addusers.CallbacksAddUserFragment
 import ru.academy.hackathon.ui.main.CallbacksMainFragment
+import ru.academy.hackathon.ui.main.ViewModelCategory
 import ru.academy.hackathon.ui.rules.CallbacksRulesFragment
 
 class MainActivity : AppCompatActivity(), Router  ,CallbacksAddUserFragment , CallbacksRulesFragment , CallbacksMainFragment {
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity(), Router  ,CallbacksAddUserFragment , Ca
 
 
     override fun openSettings() {
-        //TODO()
+        navController.navigate(R.id.action_mainFragment_to_fragmentCategory)
     }
 
     override fun openAddUsers() =
@@ -41,6 +42,11 @@ class MainActivity : AppCompatActivity(), Router  ,CallbacksAddUserFragment , Ca
     }
 
     override fun openEndGame() {
-        TODO("Not yet implemented")
+       //TODO
+    }
+
+    companion object {
+        public lateinit var viewModelCategory : ViewModelCategory
+
     }
 }

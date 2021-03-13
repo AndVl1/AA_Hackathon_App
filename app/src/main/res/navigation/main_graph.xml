@@ -16,6 +16,10 @@
         <action
                 android:id="@+id/action_mainFragment_to_rulesFragment"
                 app:destination="@id/rulesFragment" />
+
+        <action
+                android:id="@+id/action_mainFragment_to_fragmentCategory"
+                app:destination="@id/fragmentCategory" />
     </fragment>
     <fragment
             android:id="@+id/gameFragment"
@@ -33,4 +37,8 @@
             android:id="@+id/rulesFragment"
             android:name="ru.academy.hackathon.ui.rules.RulesFragment"
             android:label="RulesFragment" />
+    <fragment
+            android:id="@+id/fragmentCategory"
+            android:name="ru.academy.hackathon.ui.main.fragmentCategory.FragmentCategory"
+            android:label="FragmentCategory" />
 </navigation>
