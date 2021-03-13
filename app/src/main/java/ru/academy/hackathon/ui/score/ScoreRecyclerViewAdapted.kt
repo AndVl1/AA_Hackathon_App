@@ -3,11 +3,11 @@ package ru.academy.hackathon.ui.score
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.databinding.ScoreUserItemBinding
 
 class ScoreRecyclerViewAdapted(
-    private val values: ArrayList<Pair<String, Int>>
-): RecyclerView.Adapter<ScoreRecyclerViewAdapted.ScoreViewHolder>() {
+    var values: List<User> = emptyList()): RecyclerView.Adapter<ScoreRecyclerViewAdapted.ScoreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScoreViewHolder {
         return ScoreViewHolder(
@@ -25,12 +25,16 @@ class ScoreRecyclerViewAdapted(
         holder.bind(values[position])
     }
 
+    fun bindData(users : List<User>){
+        values=users
+    }
+
     inner class ScoreViewHolder(private val binding: ScoreUserItemBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Pair<String, Int>) {
-            binding.addUserName.text = item.first
-            binding.userScore.text = item.second.toString()
+        fun bind(item: User) {
+            binding.addUserName.text = item.name
+            binding.userScore.text = item.countSuccessfulTask.toString()
         }
     }
 }

@@ -12,7 +12,7 @@ import ru.academy.hackathon.ui.viewmodels.GameViewModel
 
 class AppComponent(context: Context) {
 
-    private val userRepository = UsersRepositoryImpl(applicationContext = context)
+    val userRepository = UsersRepositoryImpl(applicationContext = context)
 
     private val fantRepository = FantRepositoryImpl()
 
