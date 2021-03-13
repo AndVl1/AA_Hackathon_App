@@ -3,6 +3,7 @@ package ru.academy.hackathon.data.repositories
 import android.content.Context
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.*
+import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.data.storage.UserDatabase
 
@@ -39,4 +40,39 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
     override suspend fun updateUser(user: User) {
         dao.updateUser(user = user)
     }
+
+
+    suspend fun getAllFant(): List<Fant> = dao.getAllFant()
+
+    suspend fun getFantById(id: Int): Fant = withContext(dispatcher) {
+        dao.getFantById(id = id)
+    }
+
+    suspend fun getFantByIdCategory(idCategory: Int): List<Fant> = withContext(dispatcher) {
+        dao.getFantsByIdCategory(idCategory = idCategory )
+    }
+
+
+
+    suspend fun insertUser(fant: Fant) = withContext(dispatcher) {
+        dao.insertFant(fant = fant)
+    }
+
+    suspend fun updateUser(fant: Fant) {
+        dao.updateFant(fant = fant)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

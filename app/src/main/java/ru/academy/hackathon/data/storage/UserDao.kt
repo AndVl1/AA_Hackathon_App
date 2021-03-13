@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
 
 @Dao
@@ -31,4 +32,22 @@ interface UserDao {
 
     @Update
     suspend fun updateUser(user: User)
+
+
+    @Query("SELECT * FROM fant_task")
+    fun getAllFant(): List<Fant>
+
+    @Query("SELECT * FROM fant_task WHERE id == :id")
+    suspend fun getFantById(id: Int): Fant
+
+    @Query("SELECT * FROM fant_task WHERE idCategory == :idCategory")
+    suspend fun getFantsByIdCategory(idCategory: Int): List<Fant>
+
+    @Insert
+    suspend fun insertFant(fant: Fant)
+
+    @Update
+    suspend fun updateFant(fant: Fant)
+
+
 }
