@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.LivePagedListBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -18,9 +19,17 @@ class AddUserViewModel(private val repository: UsersRepositoryImpl) : ViewModel(
 
     val users = repository.getAllUsers()
 
+    val pagedUsers = LivePagedListBuilder(repository.getPagedUsers(), 10).build()
+
     fun addUser(user : User){
         viewScope.launch {
             repository.insertUser(user=user)
+        }
+    }
+
+    fun clearUsers() {
+        viewScope.launch {
+            repository.deleteAllUsers()
         }
     }
 
