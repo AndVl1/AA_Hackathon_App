@@ -6,7 +6,7 @@ data class Fant(
     var id: Int,
     var idCategory: Int,
     var textTask: String,
-    var imageName: String,
+    var imageName: Int,
     var countUsers: Int,
     var checkTask: Boolean
 )

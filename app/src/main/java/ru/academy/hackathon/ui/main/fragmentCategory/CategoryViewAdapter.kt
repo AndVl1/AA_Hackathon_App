@@ -45,7 +45,7 @@ class CategoryViewAdapter(val someClickListener: (Long) -> Unit) :
             textView.text = fant.textTask
             Glide
                 .with(itemView)
-                .load(R.drawable.push_up)
+                .load(fant.imageName)
                 .into(this.imageView)
             checkTask.isChecked = fant.checkTask
         }
