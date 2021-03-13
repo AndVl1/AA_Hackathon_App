@@ -1,10 +1,13 @@
 package ru.academy.hackathon.data.repositories
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import ru.academy.hackathon.data.models.User
 
 interface UserRepository {
     fun getAllUsers() : LiveData<List<User>>
+
+    fun getPagedUsers(): DataSource.Factory<Int, User>
 
     suspend fun getUserById(id: Int): User
 
