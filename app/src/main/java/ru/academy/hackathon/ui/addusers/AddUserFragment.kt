@@ -2,13 +2,18 @@ package ru.academy.hackathon.ui.addusers
 
 import android.content.Context
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.academy.hackathon.R
 import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.models.User
@@ -42,14 +47,21 @@ class AddUserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+        setupTouchListener()
         viewModel =
             (requireActivity().application as FantsApp).myComponent.getAddUserViewModel(fragment = this@AddUserFragment)
 
         viewModel.users.observe(viewLifecycleOwner, this::updateAdapter)
 
         binding.addUser.setOnClickListener {
-            val user = User(name = binding.enterUsername.text.toString())
-            viewModel.addUser(user = user)
+            val userName = binding.enterUsername.text.toString()
+            if(userName.isNotBlank()){
+                val user = User(name = binding.enterUsername.text.toString())
+                viewModel.addUser(user = user)
+                clearEditText()
+            }else{
+                showToast(text= getString(R.string.enter_username_toast_text))
+            }
         }
 
         binding.backMainFragmentButton.setOnClickListener {
@@ -57,7 +69,11 @@ class AddUserFragment : Fragment() {
         }
 
         binding.nextFragmentGame.setOnClickListener {
-            callback?.openGame()
+            if (userAdapter.itemCount >= 2) {
+                callback?.openGame()
+            } else {
+                showToast(text = getString(R.string.toast_text_small_users))
+            }
         }
     }
 
@@ -74,9 +90,36 @@ class AddUserFragment : Fragment() {
         }
     }
 
+    private fun clearEditText(){
+        binding.enterUsername.setText("")
+        binding.enterUsername.inputType = InputType.TYPE_NULL
+    }
+
+    private fun setupTouchListener() {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                // реагирует на свайп
+                viewModel.deleteUser(user = userAdapter.getData()[viewHolder.adapterPosition])
+            }
+        }).attachToRecyclerView(binding.addUserRecyclerView)
+    }
+
     private fun updateAdapter(users: List<User>) {
         Log.d("AAA", "AAAAAAA")
         userAdapter.bindUsers(users = users)
         userAdapter.notifyDataSetChanged()
     }
+
+    private fun showToast(text: String) =
+        Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
 }

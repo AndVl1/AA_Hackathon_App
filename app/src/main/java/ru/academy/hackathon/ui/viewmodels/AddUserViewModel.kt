@@ -24,6 +24,12 @@ class AddUserViewModel(private val repository: UsersRepositoryImpl) : ViewModel(
         }
     }
 
+    fun deleteUser(user : User){
+        viewScope.launch {
+            user.id?.let { repository.deleteUserById(id= it) }
+        }
+    }
+
 
     @Suppress("UNCHECKED_CAST")
     class Factory(private val repository: UsersRepositoryImpl) :

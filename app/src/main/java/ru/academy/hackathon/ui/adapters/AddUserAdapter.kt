@@ -27,4 +27,6 @@ class AddUserAdapter(private var users: List<User> = emptyList()) :
     fun bindUsers(users: List<User>) {
         this.users= users
     }
+
+    fun getData() = users
 }

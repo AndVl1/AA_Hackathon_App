@@ -2,6 +2,7 @@ package ru.academy.hackathon.ui.game
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.databinding.GameUsersBinding
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
+import java.time.LocalDate
 
 class GameFragment : Fragment() {
 
@@ -27,7 +29,7 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = GameUsersBinding.inflate(inflater)
-        return _binding?.root.also { restoreValues() }
+        return _binding?.root?.also { restoreValues() }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,9 +40,8 @@ class GameFragment : Fragment() {
 
         viewModel.users.observe(viewLifecycleOwner) { users ->
             usersList = users
+            startGame()
         }
-
-        startGame()
 
         binding.completeFantButton.setOnClickListener {
             recalculatingPoints()
@@ -58,37 +59,28 @@ class GameFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        saveGameValues()
-    }
-
     private fun startGame() {
-        if (Index.currentIndexUser != usersList.size) {
-            binding.usernameGame.text = usersList[Index.currentIndexUser].name
-        } else {
+        if (Index.currentIndexUser == usersList.size) {
             updateRound()
-        }
-    }
-
-    private fun saveGameValues() {
-        arguments = Bundle().apply {
-            putInt(SAVE_INDEX_ROUND, Index.currentIndexRound)
-            putInt(SAVE_INDEX_USER, Index.currentIndexUser)
+        } else {
+            binding.usernameGame.text = usersList[Index.currentIndexUser].name
         }
     }
 
     private fun restoreValues() {
-        Index.currentIndexUser = arguments?.getInt(SAVE_INDEX_USER) ?: 0
-        Index.currentIndexRound = arguments?.getInt(SAVE_INDEX_ROUND) ?: 0
+        Index.currentIndexRound = binding.roundCount.text.split(" ")[1].toInt()
+        Log.d("INDEXUSER",Index.currentIndexUser.toString())
+        Log.d("INDEXROUND",Index.currentIndexRound.toString())
     }
 
     @SuppressLint("SetTextI18n")
     private fun updateRound() {
+        Log.d("AAA","UPDATE ROUND")
         Index.currentIndexRound++
-        binding.roundCount.text = "Круг $Index.currentIndexRound"
+        Log.d("AAAINDEXROUND", Index.currentIndexRound.toString())
+        binding.roundCount.text = "Круг ${Index.currentIndexRound}"
         Index.currentIndexUser = 0
+        binding.usernameGame.text = usersList[Index.currentIndexUser].name
     }
 
     private fun recalculatingPoints(){

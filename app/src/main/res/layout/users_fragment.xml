@@ -5,6 +5,7 @@
         android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatEditText
+            android:imeOptions="actionDone"
             android:hint="@string/enter_name_username_text"
             android:layout_margin="16dp"
             android:id="@+id/enter_username"
