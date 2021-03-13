@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_holder_Width">120dp</dimen>
+    <dimen name="view_holder_Height">200dp</dimen>
+    <dimen name="imageViewWidth">100dp</dimen>
+    <dimen name="ImageViewHeight">100dp</dimen>
+
+
+</resources>

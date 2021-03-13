@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="@dimen/view_holder_Width"
+        android:layout_height="@dimen/view_holder_Height">
+    <View
+            android:id="@+id/backGroundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    <CheckBox
+            android:id="@+id/checkBoxTask"
+            android:text="CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintTop_toTopOf="@id/backGroundView"
+            app:layout_constraintBottom_toTopOf="@id/imageView" />
+
+    <ImageView
+            android:layout_width="@dimen/imageViewWidth"
+            android:layout_height="@dimen/ImageViewHeight"
+            android:id="@+id/imageView"
+            android:src="@drawable/push_up"
+            app:layout_constraintTop_toBottomOf="@id/checkBoxTask"
+
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintBottom_toTopOf="@id/textView" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/textView"
+            android:text="@string/default_title"
+
+            app:layout_constraintStart_toStartOf="backGroundView"
+            app:layout_constraintEnd_toEndOf="backGroundView"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintBottom_toBottomOf="backGroundView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
