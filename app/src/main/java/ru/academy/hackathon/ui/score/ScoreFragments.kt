@@ -15,6 +15,7 @@ import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.databinding.GameUsersBinding
 import ru.academy.hackathon.databinding.ScoreFragmentBinding
+import ru.academy.hackathon.ui.viewmodels.GameViewModel
 
 interface CallbacksScoreFragments {
     fun openMainFragmentWithScoreFragments()
@@ -79,6 +80,7 @@ class ScoreFragments : Fragment() {
 
     private fun updateUsers(){
         val repository = (requireActivity().application as FantsApp).myComponent.userRepository
+        GameViewModel.Index.currentIndexRound=1
         adapter.values.forEach { user->
             scope.launch {
                 repository.updateUser(user = user.apply {

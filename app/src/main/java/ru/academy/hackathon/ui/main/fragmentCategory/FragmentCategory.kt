@@ -69,7 +69,7 @@ class FragmentCategory() : Fragment() {
             if (users.size >= 2) {
                 callback?.openGameWithFragmentCategory()
             } else {
-                showToast(text = "Недостаточно игроков для игры")
+                showToast(text = getString(R.string.toast_text_small_users))
             }
         }
     }

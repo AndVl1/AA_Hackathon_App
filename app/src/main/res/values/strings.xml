@@ -25,4 +25,6 @@
     <string name="restart_game_text">Заново</string>
     <string name="end_game_text">Закончить</string>
 
+    <string name="small_fants_toast_text">У вас не хватвет фантов</string>
+
 </resources>
