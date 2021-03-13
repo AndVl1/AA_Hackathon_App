@@ -1,17 +1,14 @@
 package ru.academy.hackathon
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import ru.academy.hackathon.ui.addusers.AddUserFragment
 import ru.academy.hackathon.ui.Router
 import ru.academy.hackathon.ui.addusers.CallbacksAddUserFragment
 import ru.academy.hackathon.ui.game.CallbacksGameFragment
 import ru.academy.hackathon.ui.main.CallbacksMainFragment
-import ru.academy.hackathon.ui.main.ViewModelCategory
 import ru.academy.hackathon.ui.main.fragmentCategory.CallbacksFragmentCategory
-import ru.academy.hackathon.ui.main.fragmentCategory.FragmentCategory
 import ru.academy.hackathon.ui.rules.CallbacksRulesFragment
 import ru.academy.hackathon.ui.score.CallbacksScoreFragments
 

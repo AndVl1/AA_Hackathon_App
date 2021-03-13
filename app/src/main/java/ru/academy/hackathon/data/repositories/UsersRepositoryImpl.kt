@@ -53,9 +53,8 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
     }
 
     suspend fun getFantByIdCategory(idCategory: Int): List<Fant> = withContext(dispatcher) {
-        dao.getFantsByIdCategory(idCategory = idCategory )
+        dao.getFantsByIdCategory(idCategory = idCategory)
     }
-
 
 
     suspend fun insertFant(fant: Fant) = withContext(dispatcher) {

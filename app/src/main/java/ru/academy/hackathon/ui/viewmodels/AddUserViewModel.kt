@@ -33,12 +33,11 @@ class AddUserViewModel(private val repository: UsersRepositoryImpl) : ViewModel(
         }
     }
 
-    fun deleteUser(user : User){
+    fun deleteUser(user: User){
         viewScope.launch {
-            user.id?.let { repository.deleteUserById(id= it) }
+            user.id?.let { repository.deleteUserById(id = it) }
         }
     }
-
 
     @Suppress("UNCHECKED_CAST")
     class Factory(private val repository: UsersRepositoryImpl) :
@@ -48,5 +47,4 @@ class AddUserViewModel(private val repository: UsersRepositoryImpl) : ViewModel(
             return AddUserViewModel(repository = repository) as T
         }
     }
-
 }
