@@ -1,5 +1,6 @@
 package ru.academy.hackathon.ui.addusers
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,12 +16,19 @@ import ru.academy.hackathon.databinding.UsersFragmentBinding
 import ru.academy.hackathon.ui.adapters.AddUserAdapter
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 
+interface CallbacksAddUserFragment {
+    fun openGame()
+    fun backTo()
+}
+
 class AddUserFragment : Fragment() {
 
     private var _binding: UsersFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var userAdapter: AddUserAdapter
     private lateinit var viewModel: AddUserViewModel
+
+    private var callback: CallbacksAddUserFragment? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,12 +45,25 @@ class AddUserFragment : Fragment() {
         viewModel =
             (requireActivity().application as FantsApp).myComponent.getAddUserViewModel(fragment = this@AddUserFragment)
 
-        viewModel.users.observe(viewLifecycleOwner,this::updateAdapter)
+        viewModel.users.observe(viewLifecycleOwner, this::updateAdapter)
 
         binding.addUser.setOnClickListener {
             val user = User(name = binding.enterUsername.text.toString())
-            viewModel.addUser(user=user)
+            viewModel.addUser(user = user)
         }
+
+        binding.backMainFragmentButton.setOnClickListener {
+            callback?.backTo()
+        }
+
+        binding.nextFragmentGame.setOnClickListener {
+            callback?.openGame()
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is CallbacksAddUserFragment) callback = context
     }
 
     private fun setupRecyclerView() {
@@ -53,9 +74,9 @@ class AddUserFragment : Fragment() {
         }
     }
 
-    private fun updateAdapter(users : List<User>){
-        Log.d("AAA","AAAAAAA")
-        userAdapter.bindUsers(users=users)
+    private fun updateAdapter(users: List<User>) {
+        Log.d("AAA", "AAAAAAA")
+        userAdapter.bindUsers(users = users)
         userAdapter.notifyDataSetChanged()
     }
 }
