@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.academy.hackathon.data.repositories.FantRepositoryImpl
 import ru.academy.hackathon.data.repositories.UsersRepositoryImpl
+import ru.academy.hackathon.data.repository.RepositoryCategory
 import ru.academy.hackathon.ui.main.ViewModelCategory
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 import ru.academy.hackathon.ui.viewmodels.GameViewModel
@@ -16,6 +17,14 @@ class AppComponent(context: Context) {
 
     private val fantRepository = FantRepositoryImpl()
 
+    public var repositoryCategory = RepositoryCategory(applicationContext = context,
+        repository = userRepository
+    )
+
+
+
+
+
     fun getAddUserViewModel(fragment: Fragment): AddUserViewModel =
         ViewModelProvider(
             fragment,
@@ -25,7 +34,7 @@ class AppComponent(context: Context) {
     fun getViewModelCategory(fragment: Fragment): ViewModelCategory =
         ViewModelProvider(
             fragment,
-            ViewModelCategory.Factory(repository = userRepository)
+            ViewModelCategory.Factory(repository = repositoryCategory)
         )[ViewModelCategory::class.java]
 
 

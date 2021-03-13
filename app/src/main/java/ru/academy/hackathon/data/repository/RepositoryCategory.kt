@@ -1,15 +1,36 @@
 package ru.academy.hackathon.data.repository
 
+import android.content.Context
 import android.util.Log
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.academy.hackathon.R
+import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.Fant
+import ru.academy.hackathon.data.repositories.UsersRepositoryImpl
 
-class RepositoryCategory {
-    var fants: MutableList<Fant> = mutableListOf()
+class RepositoryCategory(applicationContext: Context, val repository: UsersRepositoryImpl) {
+    public var fants: MutableList<Fant> = mutableListOf()
+    private var scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     init {
+//            scope.launch {
+//                fants = getAllFants().toMutableList()
+//            }
+//                if ((fants != null) && (fants.size>0)) {
+//                    Log.v("getAllFants", "${fants.size}")
+//                } else {
+                    createHardCoreFants()
+//                    insertAllFants(fants)
+//                    Log.v("insertAllFants", "${fants.size}")
+//            }
+        }
 
-        fants.add(
+private fun createHardCoreFants(){
+    fants.add(
             Fant(
                  1,1, "Поздравлять каждого прохожего с праздником, желая всего наилучшего",
                 R.drawable.street, 1, false
@@ -465,4 +486,30 @@ class RepositoryCategory {
 
         return fants
     }
+
+
+    fun insertFant(fant: Fant) {
+        scope.launch {
+            repository.insertFant(fant = fant)
+        }
+    }
+
+    fun insertAllFants(fants: List<Fant>) {
+        scope.launch {
+            Log.v("insertAllFants", "${fants.size}")
+            fants.forEach(){
+                repository.insertFant(fant = it)
+                Log.v("insertFant", "${it.id}")
+
+            }
+//            repository.insertAllFant(fants = fants)
+        }
+    }
+
+
+    suspend fun getAllFants(): List<Fant> =
+        withContext(Dispatchers.IO) {
+            repository.getAllFant2()
+        }
+
 }

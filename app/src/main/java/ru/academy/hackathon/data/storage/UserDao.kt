@@ -3,6 +3,7 @@ package ru.academy.hackathon.data.storage
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import ru.academy.hackathon.data.Fant
@@ -37,14 +38,23 @@ interface UserDao {
     @Query("SELECT * FROM fant_task")
     fun getAllFant(): LiveData<List<Fant>>
 
+    @Query("SELECT * FROM fant_task")
+    fun getAllFant2(): List<Fant>
+
     @Query("SELECT * FROM fant_task WHERE id == :id")
     suspend fun getFantById(id: Int): Fant
 
     @Query("SELECT * FROM fant_task WHERE idCategory == :idCategory")
     suspend fun getFantsByIdCategory(idCategory: Int): List<Fant>
 
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
     @Insert
     suspend fun insertFant(fant: Fant)
+
+
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
+    suspend fun insertAllFant(fants: List<Fant>)
 
     @Update
     suspend fun updateFant(fant: Fant)

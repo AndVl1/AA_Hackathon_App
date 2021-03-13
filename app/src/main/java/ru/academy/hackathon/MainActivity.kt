@@ -2,8 +2,13 @@ package ru.academy.hackathon
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import ru.academy.hackathon.ui.addusers.AddUserFragment
 import ru.academy.hackathon.ui.Router
 import ru.academy.hackathon.ui.addusers.CallbacksAddUserFragment
@@ -25,7 +30,12 @@ class MainActivity : AppCompatActivity(), Router, CallbacksAddUserFragment, Call
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         navController = Navigation.findNavController(this@MainActivity, R.id.nav_host_fragment)
+
+
+
+
     }
+
 
     override fun openRules() =
         navController.navigate(R.id.action_mainFragment_to_rulesFragment)

@@ -72,7 +72,7 @@ class CategoryViewAdapter(val viewModel: ViewModelCategory, val someClickListene
 
             scope.launch {
                 fant.id?.let {
-                    val fantDb = viewModel.repository.getFantById(id = it)
+                    val fantDb = viewModel.repository.getFantsList(idCategory = it)
                     uiScope.launch {
                         if (fantDb != null) {
                             Log.d("AAA","AAAAAAAAAAAAAAAAAAAAAAAAA")
@@ -86,10 +86,10 @@ class CategoryViewAdapter(val viewModel: ViewModelCategory, val someClickListene
         private fun insertFant(fant : Fant){
             scope.launch {
                 fant.id?.let {
-                    val fantDb = viewModel.repository.getFantById(id = it)
+                    val fantDb = viewModel.repository.getFantsList(idCategory = it)
                     uiScope.launch {
                         if (fantDb == null) {
-                            viewModel.insertFant(fant = fantList[adapterPosition])
+                            viewModel.repository.insertFant(fant = fantList[adapterPosition])
                         }
                     }
                 }

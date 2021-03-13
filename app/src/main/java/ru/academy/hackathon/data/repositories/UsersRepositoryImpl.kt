@@ -1,6 +1,7 @@
 package ru.academy.hackathon.data.repositories
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.*
 import ru.academy.hackathon.data.Fant
@@ -44,6 +45,9 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
 
     fun getAllFant(): LiveData<List<Fant>> = dao.getAllFant()
 
+    fun getAllFant2(): List<Fant> = dao.getAllFant2()
+
+
     suspend fun getFantById(id: Int): Fant = withContext(dispatcher) {
         dao.getFantById(id = id)
     }
@@ -55,7 +59,12 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
 
 
     suspend fun insertFant(fant: Fant) = withContext(dispatcher) {
+        Log.v("UserRepository", "${fant.id}")
         dao.insertFant(fant = fant)
+    }
+
+    suspend fun insertAllFant(fants: List<Fant>) = withContext(dispatcher) {
+        dao.insertAllFant(fants = fants)
     }
 
     suspend fun updateFant(fant: Fant) {
