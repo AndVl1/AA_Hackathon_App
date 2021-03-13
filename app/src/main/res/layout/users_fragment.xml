@@ -31,7 +31,7 @@
             app:layout_constraintTop_toBottomOf="@id/enter_username"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/next_fragment_game"
             android:layout_width="0dp"
             android:layout_height="0dp" />
 
@@ -52,5 +52,16 @@
             android:id="@+id/back_main_fragment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+    <ImageButton
+            android:id="@+id/clear_users_button"
+            android:background="@drawable/image_button_border"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clear_all_black_24dp"
+            app:layout_constraintStart_toEndOf="@id/back_main_fragment_button"
+            app:layout_constraintEnd_toStartOf="@id/next_fragment_game"
+            app:layout_constraintBottom_toBottomOf="@id/next_fragment_game"
+            app:layout_constraintTop_toTopOf="@id/next_fragment_game"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

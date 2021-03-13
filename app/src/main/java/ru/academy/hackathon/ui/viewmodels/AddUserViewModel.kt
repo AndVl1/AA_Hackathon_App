@@ -27,6 +27,12 @@ class AddUserViewModel(private val repository: UsersRepositoryImpl) : ViewModel(
         }
     }
 
+    fun clearUsers() {
+        viewScope.launch {
+            repository.deleteAllUsers()
+        }
+    }
+
     fun deleteUser(user : User){
         viewScope.launch {
             user.id?.let { repository.deleteUserById(id= it) }

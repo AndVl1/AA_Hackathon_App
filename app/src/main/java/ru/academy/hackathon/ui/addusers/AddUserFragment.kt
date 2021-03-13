@@ -80,6 +80,14 @@ class AddUserFragment : Fragment() {
                 showToast(text = getString(R.string.toast_text_small_users))
             }
         }
+
+        with(binding.clearUsersButton) {
+//            visibility = if (userAdapter.itemCount > 0)
+//                View.VISIBLE
+//            else
+//                View.INVISIBLE
+            setOnClickListener { viewModel.clearUsers() }
+        }
     }
 
     override fun onAttach(context: Context) {
