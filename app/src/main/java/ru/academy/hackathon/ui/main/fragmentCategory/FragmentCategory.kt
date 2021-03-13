@@ -1,6 +1,8 @@
 package ru.academy.hackathon.ui.main.fragmentCategory
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,7 @@ import androidx.viewpager.widget.PagerTabStrip
 import androidx.viewpager.widget.ViewPager
 import ru.academy.hackathon.R
 
-class FragmentCategory () : Fragment() {
+class FragmentCategory () : Fragment(), View.OnClickListener   {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -32,4 +34,19 @@ class FragmentCategory () : Fragment() {
         pagerTabStrip.drawFullUnderline = false
         pagerTabStrip.setTabIndicatorColorResource(R.color.design_default_color_primary)
     }
+
+    override fun onClick(v: View?) {
+        when (v!!.id) {
+            R.id.toGameButton -> {
+
+                // переход на игру
+
+            }
+        }
+
+    }
+
+
+//    toGameButton
+
 }

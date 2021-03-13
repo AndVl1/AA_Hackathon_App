@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,9 @@ import ru.academy.hackathon.data.Fant
 
 
 class CategoryViewAdapter(val someClickListener: (Long) -> Unit) :
-    RecyclerView.Adapter<CategoryViewAdapter.CategoryViewHolder>() {
+    RecyclerView.Adapter<CategoryViewAdapter.CategoryViewHolder>()
+//    ,    CompoundButton.OnCheckedChangeListener
+{
     private var fantList: List<Fant> =  listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder =
         CategoryViewHolder(
@@ -57,4 +60,9 @@ class CategoryViewAdapter(val someClickListener: (Long) -> Unit) :
             someClickListener(position.toLong())
         }
     }
+
+//    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+//        TODO("Not yet implemented")
+//
+//    }
 }
