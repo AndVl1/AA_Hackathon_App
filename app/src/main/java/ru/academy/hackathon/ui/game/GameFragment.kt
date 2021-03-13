@@ -26,6 +26,7 @@ class GameFragment : Fragment() {
     private var _binding: GameUsersBinding? = null
     private val binding get() = _binding!!
 
+
     private lateinit var viewModel: AddUserViewModel
     private lateinit var gameViewModel: GameViewModel
 
@@ -68,8 +69,12 @@ class GameFragment : Fragment() {
             startGame()
         }
 
+        gameViewModel.fants.observe(viewLifecycleOwner) { fants ->
+            fantsList = fants
+        }
 
-        binding.completeFantButton.setOnClickListener {
+
+            binding.completeFantButton.setOnClickListener {
             recalculatingPoints()
             GameViewModel.Index.currentIndexUser++
             startGame()
