@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
+import com.bumptech.glide.Glide
 import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
@@ -118,6 +119,14 @@ class GameFragment : Fragment() {
     }
 
     private fun updateFant(){
-        binding.gameFants.text = fantsList[(fantsList.indices).random()].textTask
+        val index = (fantsList.indices).random()
+        binding.gameFants.text = fantsList[index].textTask
+        downloadImage(image=fantsList[index].imageName)
+    }
+
+    private fun downloadImage(image : Int){
+        Glide.with(requireContext())
+            .load(image)
+            .into(binding.mainImageGame)
     }
 }
