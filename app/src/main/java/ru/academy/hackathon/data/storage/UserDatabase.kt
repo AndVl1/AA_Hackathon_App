@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, Fant::class], version = 1)
 abstract class UserDatabase : RoomDatabase() {
 
     abstract val userDao : UserDao

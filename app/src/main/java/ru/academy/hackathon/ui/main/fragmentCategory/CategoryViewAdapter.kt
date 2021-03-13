@@ -43,9 +43,11 @@ class CategoryViewAdapter(val someClickListener: (Long) -> Unit) :
         @SuppressLint("SetTextI18n")
         fun bind(fant: Fant) {
             textView.text = fant.textTask
+             //context.getResources(fant.imageName)
+            Log.v("fun bind","$fant.imageName")
             Glide
                 .with(itemView)
-                .load(fant.imageName)
+                .load( fant.imageName)
                 .into(this.imageView)
             checkTask.isChecked = fant.checkTask
         }
