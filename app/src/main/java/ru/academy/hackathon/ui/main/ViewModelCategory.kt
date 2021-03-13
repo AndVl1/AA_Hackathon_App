@@ -20,7 +20,7 @@ import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 class ViewModelCategory( val repository: UsersRepositoryImpl) : ViewModel() {
     private var scope =  CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private var rep: RepositoryCategory =
-        RepositoryCategory();
+        RepositoryCategory()
     private val mutableState =
         MutableLiveData<ViewModelCategoryState>(ViewModelCategoryState.Loading)
     val stateLiveData: LiveData<ViewModelCategoryState> get() = mutableState
@@ -28,8 +28,7 @@ class ViewModelCategory( val repository: UsersRepositoryImpl) : ViewModel() {
     fun loadCategoryList(category: CategoryFant): List<Fant> {
         Log.v("loadCategoryList","idCategory + ${category.idCategory}")
 
-        var fants: List<Fant> = listOf()
-        fants = rep.getFantsList(category.idCategory)
+        var fants: List<Fant> = rep.getFantsList(category.idCategory)
         Log.v("loadCategoryList","${fants.size}")
         mutableState.setValue(ViewModelCategoryState.Success(fants))
 

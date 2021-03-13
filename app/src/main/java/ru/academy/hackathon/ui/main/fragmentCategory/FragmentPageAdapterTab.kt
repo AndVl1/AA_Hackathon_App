@@ -28,10 +28,10 @@ class FragmentPageAdapterTab(val childFragmentManager: FragmentManager) : Fragme
         }
 
     override fun getCount(): Int {
-        return 4;
+        return 4
     }
 
     override fun getPageTitle(position: Int): CharSequence {
-        return CategoryFant.values()[position].text;
+        return CategoryFant.values()[position].text
     }
 }

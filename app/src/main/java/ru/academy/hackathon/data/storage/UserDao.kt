@@ -52,6 +52,4 @@ interface UserDao {
 
     @Update
     suspend fun updateFant(fant: Fant)
-
-
 }

@@ -21,7 +21,7 @@ class GameViewModel(
 
     private val viewScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
-    public val fants  = userRepository.getAllFant()
+    val fants  = userRepository.getAllFant()
 
     var firstLaunch = true
 

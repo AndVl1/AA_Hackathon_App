@@ -1,11 +1,11 @@
 package ru.academy.hackathon.data
 
-import android.os.Parcelable
+import ru.academy.hackathon.data.repository.RepositoryCategory
 
 
 enum class CategoryFant(val idCategory: Int, val text:String)  {
-    Category1(1,"Уличные"),
-    Category2(2,"Спортивные"),
-    Category3(3,"Детские"),
-    Category4(4,"Алкогольные")
+    Category1(RepositoryCategory.CATEGORY_STREET,"Уличные"),
+    Category2(RepositoryCategory.CATEGORY_SPORT,"Спортивные"),
+    Category3(RepositoryCategory.CATEGORY_CHILDREN,"Детские"),
+    Category4(RepositoryCategory.CATEGORY_ALCOHOL,"Алкогольные")
 }
