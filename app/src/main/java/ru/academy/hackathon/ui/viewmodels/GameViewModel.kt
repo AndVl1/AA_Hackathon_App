@@ -21,7 +21,9 @@ class GameViewModel(
 
     private val viewScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
-    val fants  = userRepository.getAllFant()
+    public val fants  = userRepository.getAllFant()
+
+    var firstLaunch = true
 
     fun updateUser(user : User){
         viewScope.launch {
