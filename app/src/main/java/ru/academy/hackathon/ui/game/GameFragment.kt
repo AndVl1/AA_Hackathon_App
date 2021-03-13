@@ -58,11 +58,6 @@ class GameFragment : Fragment() {
         gameViewModel =
             (requireActivity().application as FantsApp).myComponent.getGameViewModel(fragment = this@GameFragment)
 
-        gameViewModel.fants.observe(viewLifecycleOwner){
-            it.forEach {
-                Log.d("FANT",it.textTask)
-            }
-        }
 
         viewModel.users.observe(viewLifecycleOwner) { users ->
             usersList = users
@@ -71,6 +66,8 @@ class GameFragment : Fragment() {
 
         gameViewModel.fants.observe(viewLifecycleOwner) { fants ->
             fantsList = fants
+            updateFant()
+            gameViewModel.firstLaunch=false
         }
 
 
@@ -90,10 +87,16 @@ class GameFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        gameViewModel.firstLaunch=true
+    }
+
     private fun startGame() {
         if (GameViewModel.Index.currentIndexUser == usersList.size) {
             updateRound()
         } else {
+            if(!gameViewModel.firstLaunch) updateFant()
             binding.usernameGame.text = usersList[GameViewModel.Index.currentIndexUser].name
         }
     }
@@ -115,6 +118,6 @@ class GameFragment : Fragment() {
     }
 
     private fun updateFant(){
-        binding.gameFants.text = fantsList[0].textTask
+        binding.gameFants.text = fantsList[(fantsList.indices).random()].textTask
     }
 }

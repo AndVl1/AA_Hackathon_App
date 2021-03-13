@@ -23,6 +23,8 @@ class GameViewModel(
 
     public val fants  = userRepository.getAllFant()
 
+    var firstLaunch = true
+
     fun updateUser(user : User){
         viewScope.launch {
             userRepository.updateUser(user=user)
