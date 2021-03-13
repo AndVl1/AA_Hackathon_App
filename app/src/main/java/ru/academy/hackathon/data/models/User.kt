@@ -13,7 +13,7 @@ data class User(
     val name: String,
     val ageType: String =AgeType.ADULT.value,
     val taskType: String = TaskType.SPORTS.value,
-    val countSuccessfulTask: Int=0
+    var countSuccessfulTask: Int=0
 )
 
 enum class AgeType(val value : String){
