@@ -1,7 +1,6 @@
 package ru.academy.hackathon.ui.score
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.academy.hackathon.databinding.ScoreUserItemBinding
