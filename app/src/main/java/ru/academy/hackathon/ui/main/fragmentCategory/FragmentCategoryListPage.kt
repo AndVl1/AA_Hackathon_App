@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerTabStrip
 import ru.academy.hackathon.MainActivity
 import ru.academy.hackathon.R
+import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.CategoryFant
 import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.ui.main.ViewModelCategory
@@ -21,10 +22,10 @@ import ru.academy.hackathon.ui.main.ViewModelCategory
 class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
     private var listRecyclerView: RecyclerView? = null
     private lateinit var pagerTabStrip: PagerTabStrip
-    lateinit var fants:List<Fant>
+    lateinit var fants: List<Fant>
 
     //    val viewModel: ViewModelCategory  by viewModel()
-    val viewModel: ViewModelCategory = MainActivity.viewModelCategory;
+    lateinit var viewModel: ViewModelCategory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,7 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = (requireActivity().application as FantsApp).myComponent.getViewModelCategory(fragment = this@FragmentCategoryListPage)
         viewModel.stateLiveData.observe(viewLifecycleOwner, Observer { setState(it) })
         fants = viewModel.loadCategoryList(categoryFant)
         listRecyclerView = view.findViewById<RecyclerView>(R.id.fcRecyclerView)
@@ -50,7 +51,6 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
                     item
                 )
             }
-
     }
 
     fun doOnClick(id: Long) {
@@ -64,7 +64,7 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
     private fun updateData(fantList: List<Fant>) {
         (listRecyclerView?.adapter as? CategoryViewAdapter)?.apply {
             bindCategory(fantList)
-            Log.v("updateData","${fantList.size}")
+            Log.v("updateData", "${fantList.size}")
 
         }
     }

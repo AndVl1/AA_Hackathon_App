@@ -4,8 +4,8 @@ import android.os.Parcelable
 
 
 enum class CategoryFant(val idCategory: Int, val text:String)  {
-    Category1(1,"уличные"),
-    Category2(2,"sport"),
-    Category3(3,"30"),
-    Category4(4,"10")
+    Category1(1,"Уличные"),
+    Category2(2,"Спортивные"),
+    Category3(3,"Детские"),
+    Category4(4,"Алкогольные")
 }

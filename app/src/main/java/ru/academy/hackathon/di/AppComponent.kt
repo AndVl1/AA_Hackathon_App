@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.academy.hackathon.data.repositories.UsersRepositoryImpl
+import ru.academy.hackathon.ui.main.ViewModelCategory
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 
 class AppComponent(context: Context) {
@@ -15,5 +16,9 @@ class AppComponent(context: Context) {
             fragment,
             AddUserViewModel.Factory(repository = userRepository)
         )[AddUserViewModel::class.java]
+
+    fun getViewModelCategory(fragment: Fragment) : ViewModelCategory{
+        return ViewModelProvider(fragment)[ViewModelCategory::class.java]
+    }
 
 }
