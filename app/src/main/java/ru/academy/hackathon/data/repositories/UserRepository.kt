@@ -15,4 +15,6 @@ interface UserRepository {
     suspend fun deleteAllUsers()
 
     suspend fun deleteUserById(id: Int)
+
+    suspend fun updateUser(user : User)
 }

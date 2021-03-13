@@ -15,7 +15,7 @@ import ru.academy.hackathon.databinding.UsersFragmentBinding
 import ru.academy.hackathon.ui.adapters.AddUserAdapter
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 
-class AddUserFragment : Fragment(R.layout.users_fragment) {
+class AddUserFragment : Fragment() {
 
     private var _binding: UsersFragmentBinding? = null
     private val binding get() = _binding!!

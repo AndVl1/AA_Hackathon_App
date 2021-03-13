@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import ru.academy.hackathon.data.models.User
 
 @Dao
@@ -27,4 +28,7 @@ interface UserDao {
 
     @Query("DELETE FROM users WHERE id == :id")
     suspend fun deleteUserById(id: Int)
+
+    @Update
+    suspend fun updateUser(user: User)
 }

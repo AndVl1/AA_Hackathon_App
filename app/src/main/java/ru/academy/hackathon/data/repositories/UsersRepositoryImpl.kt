@@ -14,7 +14,7 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
 
     private val dao = db.userDao
 
-    override  fun getAllUsers(): LiveData<List<User>> = dao.getAllUsers()
+    override fun getAllUsers(): LiveData<List<User>> = dao.getAllUsers()
 
     override suspend fun getUserById(id: Int): User = withContext(dispatcher) {
         dao.getUserById(id = id)
@@ -34,5 +34,9 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
 
     override suspend fun deleteUserById(id: Int) = withContext(dispatcher) {
         dao.deleteUserById(id = id)
+    }
+
+    override suspend fun updateUser(user: User) {
+        dao.updateUser(user = user)
     }
 }
