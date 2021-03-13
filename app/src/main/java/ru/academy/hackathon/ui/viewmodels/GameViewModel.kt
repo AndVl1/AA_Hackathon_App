@@ -10,6 +10,7 @@ class GameViewModel(
     private val fantRepository: FantRepositoryImpl
 ) : ViewModel() {
 
+    /*
     @Suppress("UNCHECKED_CAST")
     class Factory(
         private val userRepository: UsersRepositoryImpl,
@@ -21,4 +22,6 @@ class GameViewModel(
             return GameViewModel(userRepository = userRepository, fantRepository = fantRepository)
         }
     }
+    
+     */
 }
