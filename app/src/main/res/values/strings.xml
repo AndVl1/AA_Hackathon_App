@@ -21,5 +21,6 @@
     <string name="default_title">Отжаться на руках 20 раз</string>
     <string name="check_box_title">Выполнять</string>
     <string name="to_game_button_title">Играть</string>
+    <string name="end_game_main_text">Игра завершена</string>
 
 </resources>
