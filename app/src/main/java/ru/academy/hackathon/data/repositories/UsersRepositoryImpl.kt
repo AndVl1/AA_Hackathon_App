@@ -42,7 +42,7 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
     }
 
 
-    suspend fun getAllFant(): List<Fant> = dao.getAllFant()
+    fun getAllFant(): LiveData<List<Fant>> = dao.getAllFant()
 
     suspend fun getFantById(id: Int): Fant = withContext(dispatcher) {
         dao.getFantById(id = id)
@@ -54,11 +54,11 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
 
 
 
-    suspend fun insertUser(fant: Fant) = withContext(dispatcher) {
+    suspend fun insertFant(fant: Fant) = withContext(dispatcher) {
         dao.insertFant(fant = fant)
     }
 
-    suspend fun updateUser(fant: Fant) {
+    suspend fun updateFant(fant: Fant) {
         dao.updateFant(fant = fant)
     }
 

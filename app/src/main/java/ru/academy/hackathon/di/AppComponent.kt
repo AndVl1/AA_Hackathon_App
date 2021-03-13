@@ -1,6 +1,7 @@
 package ru.academy.hackathon.di
 
 import android.content.Context
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.academy.hackathon.data.repositories.FantRepositoryImpl
@@ -22,7 +23,10 @@ class AppComponent(context: Context) {
         )[AddUserViewModel::class.java]
 
     fun getViewModelCategory(fragment: Fragment): ViewModelCategory =
-        ViewModelProvider(fragment)[ViewModelCategory::class.java]
+        ViewModelProvider(
+            fragment,
+            ViewModelCategory.Factory(repository = userRepository)
+        )[ViewModelCategory::class.java]
 
 
     fun getGameViewModel(fragment: Fragment) =

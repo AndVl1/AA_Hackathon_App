@@ -46,7 +46,7 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
         listRecyclerView = view.findViewById<RecyclerView>(R.id.fcRecyclerView)
         listRecyclerView?.layoutManager = GridLayoutManager(activity, 2)
         listRecyclerView?.adapter =
-            CategoryViewAdapter { item ->
+            CategoryViewAdapter(viewModel=viewModel) { item ->
                 doOnClick(
                     item
                 )

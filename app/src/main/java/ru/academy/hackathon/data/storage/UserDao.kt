@@ -35,7 +35,7 @@ interface UserDao {
 
 
     @Query("SELECT * FROM fant_task")
-    fun getAllFant(): List<Fant>
+    fun getAllFant(): LiveData<List<Fant>>
 
     @Query("SELECT * FROM fant_task WHERE id == :id")
     suspend fun getFantById(id: Int): Fant

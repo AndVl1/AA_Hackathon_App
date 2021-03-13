@@ -15,10 +15,7 @@
           <package name="java" alias="false" withSubpackages="true" />
           <package name="javax" alias="false" withSubpackages="true" />
           <package name="kotlin" alias="false" withSubpackages="true" />
-<<<<<<< HEAD
           <package name="" alias="true" withSubpackages="true" />
-=======
->>>>>>> 1fc47afb79ef52bed4db48d524142196df4297a2
         </value>
       </option>
       <option name="NAME_COUNT_TO_USE_STAR_IMPORT" value="2147483647" />

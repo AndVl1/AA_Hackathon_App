@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import ru.academy.hackathon.application.FantsApp
+import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.databinding.GameUsersBinding
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
@@ -29,6 +30,7 @@ class GameFragment : Fragment() {
     private lateinit var gameViewModel: GameViewModel
 
     private lateinit var usersList: List<User>
+    private lateinit var fantsList : List<Fant>
 
     private var callback : CallbacksGameFragment? = null
 
@@ -55,10 +57,17 @@ class GameFragment : Fragment() {
         gameViewModel =
             (requireActivity().application as FantsApp).myComponent.getGameViewModel(fragment = this@GameFragment)
 
+        gameViewModel.fants.observe(viewLifecycleOwner){
+            it.forEach {
+                Log.d("FANT",it.textTask)
+            }
+        }
+
         viewModel.users.observe(viewLifecycleOwner) { users ->
             usersList = users
             startGame()
         }
+
 
         binding.completeFantButton.setOnClickListener {
             recalculatingPoints()
@@ -98,5 +107,9 @@ class GameFragment : Fragment() {
         usersList.forEach { user ->
             gameViewModel.updateUser(user = user)
         }
+    }
+
+    private fun updateFant(){
+        binding.gameFants.text = fantsList[0].textTask
     }
 }
