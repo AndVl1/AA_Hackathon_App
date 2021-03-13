@@ -35,8 +35,11 @@ class MainActivity : AppCompatActivity(), Router, CallbacksAddUserFragment, Call
         navController.navigate(R.id.action_mainFragment_to_fragmentCategory)
     }
 
-    override fun openAddUsers() =
+    override fun openAddUsers(){
+        navController?.navigateUp()
         navController.navigate(R.id.action_mainFragment_to_addUserFragment)
+    }
+
 
 
     override fun openGame() =
