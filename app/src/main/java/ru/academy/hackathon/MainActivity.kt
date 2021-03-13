@@ -9,9 +9,12 @@ import ru.academy.hackathon.ui.Router
 import ru.academy.hackathon.ui.addusers.CallbacksAddUserFragment
 import ru.academy.hackathon.ui.main.CallbacksMainFragment
 import ru.academy.hackathon.ui.main.ViewModelCategory
+import ru.academy.hackathon.ui.main.fragmentCategory.CallbacksFragmentCategory
+import ru.academy.hackathon.ui.main.fragmentCategory.FragmentCategory
 import ru.academy.hackathon.ui.rules.CallbacksRulesFragment
 
-class MainActivity : AppCompatActivity(), Router  ,CallbacksAddUserFragment , CallbacksRulesFragment , CallbacksMainFragment {
+class MainActivity : AppCompatActivity(), Router, CallbacksAddUserFragment, CallbacksRulesFragment,
+    CallbacksMainFragment, CallbacksFragmentCategory {
 
     private lateinit var navController: NavController
 
@@ -42,11 +45,14 @@ class MainActivity : AppCompatActivity(), Router  ,CallbacksAddUserFragment , Ca
     }
 
     override fun openEndGame() {
-       //TODO
+        //TODO
+    }
+
+    override fun openGameWithFragmentCategory() {
+        navController.navigate(R.id.action_fragmentCategory_to_gameFragment)
     }
 
     companion object {
-        public lateinit var viewModelCategory : ViewModelCategory
-
+        public lateinit var viewModelCategory: ViewModelCategory
     }
 }

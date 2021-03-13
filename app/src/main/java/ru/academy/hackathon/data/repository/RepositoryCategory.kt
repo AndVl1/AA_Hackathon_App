@@ -9,7 +9,7 @@ class RepositoryCategory {
 
     init {
 
-        fants.a
+        fants.add(
             Fant(
                 1, 1, "Поздравлять каждого прохожего с праздником, желая всего наилучшего",
                 R.drawable.street, 1, true
