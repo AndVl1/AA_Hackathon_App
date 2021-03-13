@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import ru.academy.hackathon.databinding.GameUsersBinding
 import ru.academy.hackathon.databinding.ScoreFragmentBinding
 
@@ -26,7 +27,6 @@ class ScoreFragments : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = ScoreFragmentBinding.inflate(inflater)
-
         return _binding?.root
     }
 
@@ -45,5 +45,16 @@ class ScoreFragments : Fragment() {
         binding.endGameButton.setOnClickListener {
             callback?.openMainFragmentWithScoreFragments()
         }
+
+        with(binding.scoreRecyclerView) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = initRecyclerView(arrayListOf(
+                Pair("Test", 5),
+                Pair("Test2", -1)
+            ))
+        }
     }
+
+    private fun initRecyclerView(values: ArrayList<Pair<String, Int>>): ScoreRecyclerViewAdapted
+            = ScoreRecyclerViewAdapted(values)
 }
