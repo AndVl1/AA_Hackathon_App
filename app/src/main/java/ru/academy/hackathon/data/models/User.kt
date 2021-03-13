@@ -11,13 +11,13 @@ data class User(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     val name: String,
-    val ageType: String =AgeType.ADULT.value,
+    val ageType: String = AgeType.ADULT.value,
     val taskType: String = TaskType.SPORTS.value,
     var countSuccessfulTask: Int=0
 )
 
 enum class AgeType(val value : String){
-    KID("KID"),ADULT("ADULT")
+    KID("KID"), ADULT("ADULT")
 }
 
 enum class TaskType(val value: String){

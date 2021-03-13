@@ -84,7 +84,7 @@ class ScoreFragments : Fragment() {
         adapter.values.forEach { user->
             scope.launch {
                 repository.updateUser(user = user.apply {
-                    countSuccessfulTask =0
+                    countSuccessfulTask = 0
                 })
             }
         }

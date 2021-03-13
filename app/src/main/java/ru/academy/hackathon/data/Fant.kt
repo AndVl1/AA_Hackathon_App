@@ -1,11 +1,9 @@
 package ru.academy.hackathon.data
 
-import android.os.Parcelable
 import androidx.room.Entity
-import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "fant_task" )
+@Entity(tableName = "fant_task")
 data class Fant(
     @PrimaryKey(autoGenerate = false)
     var id: Int?,

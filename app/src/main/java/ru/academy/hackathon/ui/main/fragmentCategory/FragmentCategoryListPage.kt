@@ -40,7 +40,9 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (requireActivity().application as FantsApp).myComponent.getViewModelCategory(fragment = this@FragmentCategoryListPage)
+        viewModel = (requireActivity().application as FantsApp)
+            .myComponent
+            .getViewModelCategory(fragment = this@FragmentCategoryListPage)
         viewModel.stateLiveData.observe(viewLifecycleOwner, Observer { setState(it) })
         fants = viewModel.loadCategoryList(categoryFant)
         listRecyclerView = view.findViewById<RecyclerView>(R.id.fcRecyclerView)

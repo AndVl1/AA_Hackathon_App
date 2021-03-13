@@ -20,7 +20,7 @@ interface CallbacksFragmentCategory {
     fun openGameWithFragmentCategory()
 }
 
-class FragmentCategory() : Fragment() {
+class FragmentCategory : Fragment() {
 
     private var _binding: FragmentCategoryBinding? = null
     private val binding get() = _binding!!

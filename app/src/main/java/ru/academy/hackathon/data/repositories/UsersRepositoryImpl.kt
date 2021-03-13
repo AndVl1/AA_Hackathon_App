@@ -3,7 +3,8 @@ package ru.academy.hackathon.data.repositories
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.data.storage.UserDatabase
@@ -52,9 +53,8 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
     }
 
     suspend fun getFantByIdCategory(idCategory: Int): List<Fant> = withContext(dispatcher) {
-        dao.getFantsByIdCategory(idCategory = idCategory )
+        dao.getFantsByIdCategory(idCategory = idCategory)
     }
-
 
 
     suspend fun insertFant(fant: Fant) = withContext(dispatcher) {
@@ -64,18 +64,4 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
     suspend fun updateFant(fant: Fant) {
         dao.updateFant(fant = fant)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
