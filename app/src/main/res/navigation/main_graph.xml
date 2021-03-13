@@ -36,6 +36,9 @@
         <action
                 android:id="@+id/action_addUserFragment_to_gameFragment"
                 app:destination="@id/gameFragment" />
+        <action
+                android:id="@+id/action_addUserFragment_to_mainFragment"
+                app:destination="@id/mainFragment" />
     </fragment>
     <fragment
             android:id="@+id/rulesFragment"

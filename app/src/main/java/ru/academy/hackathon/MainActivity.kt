@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity(), Router, CallbacksAddUserFragment, Call
     override fun openGame() =
         navController.navigate(R.id.action_addUserFragment_to_gameFragment)
 
+    override fun backToMainFragmentWithAddUserFragment() {
+        navController.navigate(R.id.action_addUserFragment_to_mainFragment)
+    }
+
 
     override fun backTo() {
         navController.popBackStack()

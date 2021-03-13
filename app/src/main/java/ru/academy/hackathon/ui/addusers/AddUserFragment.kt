@@ -23,7 +23,7 @@ import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
 
 interface CallbacksAddUserFragment {
     fun openGame()
-    fun backTo()
+    fun backToMainFragmentWithAddUserFragment()
 }
 
 class AddUserFragment : Fragment() {
@@ -55,22 +55,22 @@ class AddUserFragment : Fragment() {
 
         binding.addUser.setOnClickListener {
             val userName = binding.enterUsername.text.toString()
-            if(userName.isNotBlank()){
+            if (userName.isNotBlank()) {
                 val user = User(name = binding.enterUsername.text.toString())
                 viewModel.addUser(user = user)
                 clearEditText()
-            }else{
-                showToast(text= getString(R.string.enter_username_toast_text))
+            } else {
+                showToast(text = getString(R.string.enter_username_toast_text))
             }
         }
 
         binding.backMainFragmentButton.setOnClickListener {
-            callback?.backTo()
+            callback?.backToMainFragmentWithAddUserFragment()
         }
 
         binding.nextFragmentGame.setOnClickListener {
             if (userAdapter.itemCount >= 2) {
-                callback?.openGame()
+                checkAllFants()
             } else {
                 showToast(text = getString(R.string.toast_text_small_users))
             }
@@ -90,7 +90,7 @@ class AddUserFragment : Fragment() {
         }
     }
 
-    private fun clearEditText(){
+    private fun clearEditText() {
         binding.enterUsername.setText("")
         binding.enterUsername.inputType = InputType.TYPE_NULL
     }
@@ -115,11 +115,21 @@ class AddUserFragment : Fragment() {
     }
 
     private fun updateAdapter(users: List<User>) {
-        Log.d("AAA", "AAAAAAA")
         userAdapter.bindUsers(users = users)
         userAdapter.notifyDataSetChanged()
     }
 
     private fun showToast(text: String) =
         Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
+
+    private fun checkAllFants() {
+        (requireActivity().application as FantsApp).myComponent.userRepository.getAllFant()
+            .observe(viewLifecycleOwner) {fants->
+                if(fants.isNotEmpty()){
+                    callback?.openGame()
+                }else{
+                    showToast(text=getString(R.string.small_fants_toast_text))
+                }
+            }
+    }
 }
