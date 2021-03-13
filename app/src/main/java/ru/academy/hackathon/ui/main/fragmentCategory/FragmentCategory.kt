@@ -1,5 +1,6 @@
 package ru.academy.hackathon.ui.main.fragmentCategory
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +9,35 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.PagerTabStrip
 import androidx.viewpager.widget.ViewPager
 import ru.academy.hackathon.R
+import ru.academy.hackathon.databinding.FragmentCategoryBinding
+import ru.academy.hackathon.databinding.GameUsersBinding
 
-class FragmentCategory () : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+interface CallbacksFragmentCategory {
+    fun backTo()
+    fun openGameWithFragmentCategory()
+}
+
+class FragmentCategory() : Fragment() {
+
+    private var _binding: FragmentCategoryBinding? = null
+    private val binding get() = _binding!!
+
+    private var callback: CallbacksFragmentCategory? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_category, container, false)
+    ): View? {
+        _binding = FragmentCategoryBinding.inflate(inflater)
+
+        return _binding?.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is CallbacksFragmentCategory) callback = context
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,5 +50,13 @@ class FragmentCategory () : Fragment() {
         val pagerTabStrip: PagerTabStrip = view.findViewById(R.id.pagerTabStrip)
         pagerTabStrip.drawFullUnderline = false
         pagerTabStrip.setTabIndicatorColorResource(R.color.design_default_color_primary)
+
+        binding.toBackButton.setOnClickListener {
+            callback?.backTo()
+        }
+
+        binding.toGameButton.setOnClickListener {
+            callback?.openGameWithFragmentCategory()
+        }
     }
 }

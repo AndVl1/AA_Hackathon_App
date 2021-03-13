@@ -47,4 +47,20 @@
             app:layout_constraintEnd_toEndOf="@+id/fcRootLinearLayout">
 
     </Button>
+
+    <Button
+            android:id="@+id/toBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/back_button_text"
+            android:visibility="visible"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/fcLinearLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/fcRootLinearLayout"
+            app:layout_constraintStart_toStartOf="@+id/fcRootLinearLayout">
+
+    </Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,6 @@ interface Router {
 
     fun openEndGame()
 
-
+    fun openGameWithFragmentCategory()
 
 }

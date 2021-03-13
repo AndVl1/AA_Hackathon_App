@@ -40,5 +40,9 @@
     <fragment
             android:id="@+id/fragmentCategory"
             android:name="ru.academy.hackathon.ui.main.fragmentCategory.FragmentCategory"
-            android:label="FragmentCategory" />
+            android:label="FragmentCategory">
+        <action
+                android:id="@+id/action_fragmentCategory_to_gameFragment"
+                app:destination="@id/gameFragment" />
+    </fragment>
 </navigation>

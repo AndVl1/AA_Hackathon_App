@@ -12,6 +12,7 @@ import ru.academy.hackathon.application.FantsApp
 import ru.academy.hackathon.data.models.User
 import ru.academy.hackathon.databinding.GameUsersBinding
 import ru.academy.hackathon.ui.viewmodels.AddUserViewModel
+import ru.academy.hackathon.ui.viewmodels.GameViewModel
 import java.time.LocalDate
 
 class GameFragment : Fragment() {
@@ -20,6 +21,7 @@ class GameFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: AddUserViewModel
+    private lateinit var gameViewModel: GameViewModel
 
     private lateinit var usersList: List<User>
 
@@ -29,7 +31,7 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = GameUsersBinding.inflate(inflater)
-        return _binding?.root?.also { restoreValues() }
+        return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,6 +40,9 @@ class GameFragment : Fragment() {
             (requireActivity().application as FantsApp).myComponent
                 .getAddUserViewModel(fragment = this@GameFragment)
 
+        gameViewModel =
+            (requireActivity().application as FantsApp).myComponent.getGameViewModel(fragment = this@GameFragment)
+
         viewModel.users.observe(viewLifecycleOwner) { users ->
             usersList = users
             startGame()
@@ -45,12 +50,12 @@ class GameFragment : Fragment() {
 
         binding.completeFantButton.setOnClickListener {
             recalculatingPoints()
-            Index.currentIndexUser++
+            GameViewModel.Index.currentIndexUser++
             startGame()
         }
 
         binding.dropFantButton.setOnClickListener {
-            Index.currentIndexUser++
+            GameViewModel.Index.currentIndexUser++
             startGame()
         }
 
@@ -60,40 +65,26 @@ class GameFragment : Fragment() {
     }
 
     private fun startGame() {
-        if (Index.currentIndexUser == usersList.size) {
+        if (GameViewModel.Index.currentIndexUser == usersList.size) {
             updateRound()
         } else {
-            binding.usernameGame.text = usersList[Index.currentIndexUser].name
+            binding.usernameGame.text = usersList[GameViewModel.Index.currentIndexUser].name
         }
-    }
-
-    private fun restoreValues() {
-        Index.currentIndexRound = binding.roundCount.text.split(" ")[1].toInt()
-        Log.d("INDEXUSER",Index.currentIndexUser.toString())
-        Log.d("INDEXROUND",Index.currentIndexRound.toString())
     }
 
     @SuppressLint("SetTextI18n")
     private fun updateRound() {
-        Log.d("AAA","UPDATE ROUND")
-        Index.currentIndexRound++
-        Log.d("AAAINDEXROUND", Index.currentIndexRound.toString())
-        binding.roundCount.text = "Круг ${Index.currentIndexRound}"
-        Index.currentIndexUser = 0
-        binding.usernameGame.text = usersList[Index.currentIndexUser].name
+        Log.d("AAA", "UPDATE ROUND")
+        GameViewModel.Index.currentIndexRound++
+        binding.roundCount.text = "Круг ${GameViewModel.Index.currentIndexRound}"
+        GameViewModel.Index.currentIndexUser = 0
+        binding.usernameGame.text = usersList[GameViewModel.Index.currentIndexUser].name
     }
 
-    private fun recalculatingPoints(){
-        usersList[Index.currentIndexUser].countSuccessfulTask++
+    private fun recalculatingPoints() {
+        usersList[GameViewModel.Index.currentIndexUser].countSuccessfulTask++
+        usersList.forEach { user ->
+            gameViewModel.updateUser(user = user)
+        }
     }
-
-    companion object {
-        private const val SAVE_INDEX_ROUND = "SAVE_INDEX_ROUND"
-        private const val SAVE_INDEX_USER = "SAVE_INDEX_ROUND"
-    }
-}
-
-object Index {
-    var currentIndexUser = 0
-    var currentIndexRound = 1
 }
