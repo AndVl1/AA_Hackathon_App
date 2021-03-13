@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,7 +52,11 @@ class AddUserFragment : Fragment() {
         viewModel =
             (requireActivity().application as FantsApp).myComponent.getAddUserViewModel(fragment = this@AddUserFragment)
 
-        viewModel.users.observe(viewLifecycleOwner, this::updateAdapter)
+//        viewModel.users.observe(viewLifecycleOwner, this::updateAdapter)
+
+        viewModel.pagedUsers.observe(viewLifecycleOwner, Observer {
+            userAdapter.submitList(it)
+        })
 
         binding.addUser.setOnClickListener {
             val userName = binding.enterUsername.text.toString()
@@ -74,6 +79,14 @@ class AddUserFragment : Fragment() {
             } else {
                 showToast(text = getString(R.string.toast_text_small_users))
             }
+        }
+
+        with(binding.clearUsersButton) {
+//            visibility = if (userAdapter.itemCount > 0)
+//                View.VISIBLE
+//            else
+//                View.INVISIBLE
+            setOnClickListener { viewModel.clearUsers() }
         }
     }
 
@@ -109,14 +122,13 @@ class AddUserFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 // реагирует на свайп
-                viewModel.deleteUser(user = userAdapter.getData()[viewHolder.adapterPosition])
+                viewModel.deleteUser(user = userAdapter.getUserItem(viewHolder.adapterPosition)!!)
             }
         }).attachToRecyclerView(binding.addUserRecyclerView)
     }
 
     private fun updateAdapter(users: List<User>) {
         userAdapter.bindUsers(users = users)
-        userAdapter.notifyDataSetChanged()
     }
 
     private fun showToast(text: String) =

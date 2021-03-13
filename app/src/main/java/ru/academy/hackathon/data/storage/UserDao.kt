@@ -1,6 +1,7 @@
 package ru.academy.hackathon.data.storage
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -13,6 +14,9 @@ interface UserDao {
 
     @Query("SELECT * FROM users")
     fun getAllUsers(): LiveData<List<User>>
+
+    @Query("SELECT * FROM users")
+    fun getAllUsersPaged(): DataSource.Factory<Int, User>
 
     @Query("SELECT * FROM users WHERE id == :id")
     suspend fun getUserById(id: Int): User

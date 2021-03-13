@@ -2,6 +2,7 @@ package ru.academy.hackathon.data.repositories
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import kotlinx.coroutines.*
 import ru.academy.hackathon.data.Fant
 import ru.academy.hackathon.data.models.User
@@ -16,6 +17,8 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
     private val dao = db.userDao
 
     override fun getAllUsers(): LiveData<List<User>> = dao.getAllUsers()
+
+    override fun getPagedUsers(): DataSource.Factory<Int, User> = dao.getAllUsersPaged()
 
     override suspend fun getUserById(id: Int): User = withContext(dispatcher) {
         dao.getUserById(id = id)
