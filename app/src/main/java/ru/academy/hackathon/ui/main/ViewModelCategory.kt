@@ -41,6 +41,11 @@ class ViewModelCategory( val repository: UsersRepositoryImpl) : ViewModel() {
         }
     }
 
+    fun updateFant(fant : Fant){
+        scope.launch {
+            repository.updateFant(fant=fant)
+        }
+    }
 
 
     sealed class ViewModelCategoryState {

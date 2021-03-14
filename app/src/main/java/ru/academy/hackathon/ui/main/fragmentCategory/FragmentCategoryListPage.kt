@@ -45,6 +45,7 @@ class FragmentCategoryListPage(val categoryFant: CategoryFant) : Fragment() {
             .getViewModelCategory(fragment = this@FragmentCategoryListPage)
         viewModel.stateLiveData.observe(viewLifecycleOwner, Observer { setState(it) })
         fants = viewModel.loadCategoryList(categoryFant)
+        Log.v("onViewCreated","${fants.size}")
         listRecyclerView = view.findViewById<RecyclerView>(R.id.fcRecyclerView)
         listRecyclerView?.layoutManager = GridLayoutManager(activity, 2)
         listRecyclerView?.adapter =

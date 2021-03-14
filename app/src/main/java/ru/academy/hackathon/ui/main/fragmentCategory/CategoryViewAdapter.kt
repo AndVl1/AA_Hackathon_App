@@ -89,7 +89,11 @@ class CategoryViewAdapter(val viewModel: ViewModelCategory, val someClickListene
                     val fantDb = viewModel.repository.getFantById(id = it)
                     uiScope.launch {
                         if (fantDb == null) {
-                            viewModel.insertFant(fant = fantList[adapterPosition])
+                            viewModel.insertFant(fant = fant)
+//                            viewModel.insertFant(fant = fantList[adapterPosition])
+                        }
+                        else {
+                            viewModel.updateFant(fant = fant)
                         }
                     }
                 }
