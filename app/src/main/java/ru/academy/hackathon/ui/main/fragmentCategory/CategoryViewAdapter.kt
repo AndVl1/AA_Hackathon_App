@@ -48,9 +48,17 @@ class CategoryViewAdapter(val viewModel: ViewModelCategory, val someClickListene
         private val uiScope = CoroutineScope(Dispatchers.Main)
 
         init {
-            checkTask.setOnClickListener {
-                if (checkTask.isChecked) {
+            checkTask.setOnCheckedChangeListener {_, isChecked ->
+                if (isChecked) {
+                    Log.d("AAA","INSERT")
                     insertFant(fant = fantList[adapterPosition])
+                }else{
+                    scope.launch {
+                        fantList[adapterPosition].id?.let {
+                            Log.d("AAA","DELETE")
+                            viewModel.repository.deleteFant(fant=fantList[adapterPosition])
+                        }
+                    }
                 }
             }
         }
@@ -66,21 +74,25 @@ class CategoryViewAdapter(val viewModel: ViewModelCategory, val someClickListene
                 .into(this.imageView)
             checkTask.isChecked = fant.checkTask
 
-            if (checkTask.isChecked) {
-                insertFant(fant=fant)
-            }
-
             scope.launch {
                 fant.id?.let {
                     val fantDb = viewModel.repository.getFantById(id = it)
                     uiScope.launch {
                         if (fantDb != null) {
-                            Log.d("AAA","AAAAAAAAAAAAAAAAAAAAAAAAA")
+                            Log.d("AAA","VIEWED")
                             checkTask.isChecked = true
                         }
                     }
                 }
             }
+
+            /*
+            if (checkTask.isChecked) {
+                Log.d("AAA","INSERT")
+                insertFant(fant=fant)
+            }
+
+             */
         }
 
         private fun insertFant(fant : Fant){

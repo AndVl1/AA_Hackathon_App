@@ -11,7 +11,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                1,
                 CATEGORY_STREET,
                 "Поздравлять каждого прохожего с праздником, желая всего наилучшего",
                 R.drawable.neznakom,
@@ -21,7 +21,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                2,
                 CATEGORY_STREET,
                 "Загадать кому-нибудь из случайных людей трудную загадку",
                 R.drawable.zagadka,
@@ -31,7 +31,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                3,
                 CATEGORY_STREET,
                 "Стать инициатором хоровода вокруг дерева",
                 R.drawable.horovod,
@@ -41,18 +41,18 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                4,
                 CATEGORY_STREET,
                 "Встать под деревом и поздравить людей с праздником по-президентски",
                 R.drawable.i_prezident,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                5,
                 CATEGORY_STREET,
                 "Выпить шампанского с понравившимся прохожим",
                 R.drawable.shampan,
@@ -62,17 +62,17 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                6,
                 CATEGORY_STREET,
                 "Дарить бенгальские огни незнакомцам, обнимая каждого из них",
                 R.drawable.bengalskie_ogni,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                7,
                 CATEGORY_STREET,
                 "Приставать к людям, предлагая погадать по руке",
                 R.drawable.gadanie,
@@ -82,7 +82,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id, CATEGORY_STREET,
+                8, CATEGORY_STREET,
                 "Завязать знакомство с 5 мужчинами и женщинами",
                 R.drawable.znakomstvo,
                 1,
@@ -92,26 +92,26 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id, CATEGORY_STREET,
+                9, CATEGORY_STREET,
                 "Угощать печеньем всех встречающихся малышей",
                 R.drawable.pechenie,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                10,
                 CATEGORY_STREET,
                 "Получить 10 комплиментов от 5 людей противоположного пола",
                 R.drawable.compliment,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                11,
                 CATEGORY_STREET,
                 "Раздеться до белья, выбежать во двор и попросить у первого встречного соль",
                 R.drawable.sol,
@@ -121,7 +121,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                12,
                 CATEGORY_STREET,
                 "Накрасить помадой нос и сыграть Деда Мороза",
                 R.drawable.ne_ded_moroz,
@@ -132,7 +132,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                13,
                 CATEGORY_STREET,
                 "Зайти к каждому соседу и поздравить с праздником",
                 R.drawable.sosedy,
@@ -142,17 +142,17 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                14,
                 CATEGORY_STREET,
                 "Притвориться иностранным гражданином и пытаться узнать дорогу к посольству у проходящих мимо людей",
                 R.drawable.shpion,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                15,
                 CATEGORY_STREET,
                 "Броситься на шею прохожему, а потом притвориться, что обознался",
                 R.drawable.oboznalsa,
@@ -162,18 +162,18 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                16,
                 CATEGORY_STREET,
                 "Опросить прохожих, интересуясь их мечтами и планами на следующий год",
                 R.drawable.mechta,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                17,
                 CATEGORY_STREET,
                 "Попросить у 5 людей противоположного пола номер телефона",
                 R.drawable.telefon,
@@ -184,17 +184,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+               18,
                 CATEGORY_SPORT,
                 "Отжаться 15 раз",
                 R.drawable.push_up,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                19,
                 CATEGORY_SPORT,
                 "Изобразить как играет футболист",
                 R.drawable.footbol,
@@ -205,29 +205,29 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                20,
                 CATEGORY_SPORT,
                 "Присесть 30 раз",
                 R.drawable.prisedanie,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                21,
                 CATEGORY_SPORT,
                 "Встать на руки",
                 R.drawable.na_rukah,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                22,
                 CATEGORY_SPORT,
                 "Изобразить как играет баскетболист",
                 R.drawable.basket,
@@ -238,7 +238,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                23,
                 CATEGORY_SPORT,
                 "Изобразить как играет хоккеист",
                 R.drawable.hokey,
@@ -249,7 +249,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                24,
                 CATEGORY_SPORT,
                 "Изобразить празднование гола в футболе",
                 R.drawable.gol,
@@ -260,7 +260,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                25,
                 CATEGORY_SPORT,
                 "Изобразить празднование гола в баскетболе",
                 R.drawable.gol_b,
@@ -271,18 +271,18 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                26,
                 CATEGORY_SPORT,
                 "Изобразить празднование гола в хоккеи",
                 R.drawable.gol_h,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                27,
                 CATEGORY_SPORT,
                 "Оббежать вокруг стола 10 раз",
                 R.drawable.beg,
@@ -293,7 +293,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                28,
                 CATEGORY_SPORT,
                 "Сделать гимнастическую фигуру мостик",
                 R.drawable.mostik,
@@ -304,7 +304,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                29,
                 CATEGORY_SPORT,
                 "Сделать гимнастическую фигуру ласточку",
                 R.drawable.lastochka,
@@ -314,39 +314,39 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                30,
                 CATEGORY_SPORT,
                 "Подпрыгнуть на одной ноге 50 раз",
                 R.drawable.noga,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                31,
                 CATEGORY_CHILDREN,
                 "Рассказать стих",
                 R.drawable.stih,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                32,
                 CATEGORY_CHILDREN,
                 "Спеть песню",
                 R.drawable.pesny,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                33,
                 CATEGORY_CHILDREN,
                 "Нарисовать портрет кого-либо из участников",
                 R.drawable.portret,
@@ -356,17 +356,17 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                34,
                 CATEGORY_CHILDREN,
                 "С завязанными глазами, не помогая себе руками, ртом взять кусочек фрукта с блюда и отгадать, что это",
                 R.drawable.zavyzan,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                35,
                 CATEGORY_CHILDREN,
                 "Изобразить котенка, который лакает молочко из тарелки",
                 R.drawable.kotik,
@@ -376,27 +376,27 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                36,
                 CATEGORY_CHILDREN,
                 "Из бумаги как можно быстрее сложить какой-либо предмет",
                 R.drawable.is_bumagi,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                37,
                 CATEGORY_CHILDREN,
                 "С завязанными глазами нарисовать домашнее животное",
                 R.drawable.risunot_kot,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                38,
                 CATEGORY_CHILDREN,
                 "С закрытыми глазами определить на ощупь, какой предмет ведущий положил в руку",
                 R.drawable.zakrit_glaza,
@@ -406,7 +406,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                39,
                 CATEGORY_CHILDREN,
                 "Станцевать с полным стаканом воды в руке",
                 R.drawable.stakan,
@@ -416,7 +416,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                40,
                 CATEGORY_CHILDREN,
                 "Вспомнить как можно больше вежливых слов",
                 R.drawable.vspomnit2,
@@ -426,37 +426,37 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                41,
                 CATEGORY_CHILDREN,
                 "Поменять обувь с левой ноги на правую, пройти в таком виде красивой походкой",
                 R.drawable.obuv,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                42,
                 CATEGORY_CHILDREN,
                 "Показать так персонажа мультфильма, чтобы все игроки угадали, кто это",
                 R.drawable.personag,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                43,
                 CATEGORY_CHILDREN,
                 "Успеть выпить напиток из стакана за 15 секунд через трубочку",
                 R.drawable.is_trubochki,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                44,
                 CATEGORY_CHILDREN,
                 "Изобразить любую профессию так, чтобы другие смогли отгадать",
                 R.drawable.prof,
@@ -466,7 +466,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id, CATEGORY_CHILDREN,
+                45, CATEGORY_CHILDREN,
                 "Назвать десять слов на одну букву.",
                 R.drawable.mozg,
                 1,
@@ -475,7 +475,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                46,
                 CATEGORY_CHILDREN,
                 "Побыть собачкой, вертеть хвостиком и выпрашивать еду (без слов)",
                 R.drawable.pes,
@@ -485,7 +485,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                47,
                 CATEGORY_CHILDREN,
                 "Набрать в рот воды и не отвечать на вопросы других участников 2 минуты.",
                 R.drawable.v_rot_voda,
@@ -495,17 +495,17 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                48,
                 CATEGORY_CHILDREN,
                 "Съесть кусочек лимона и не скривиться при этом.",
                 R.drawable.limon,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                49,
                 CATEGORY_CHILDREN,
                 "Представить себя цаплей, стоять на одной ноге и " +
                         "попытаться при этом что-то съесть со стола не пользуясь руками.",
@@ -516,7 +516,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                50,
                 CATEGORY_CHILDREN,
                 "Представить, что вы робот и двигаться как он. Задавать вопросы голосом робота",
                 R.drawable.robot,
@@ -527,17 +527,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                51,
                 CATEGORY_ALCOHOL,
                 "Выпить бокал шампанского без помощи рук",
                 R.drawable.s_bez_ruk,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                52,
                 CATEGORY_ALCOHOL,
                 "Сказать праздничный тост и выпить одну рюмку",
                 R.drawable.tost,
@@ -548,17 +548,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                53,
                 CATEGORY_ALCOHOL,
                 "Выпить «на брудершафт» с соседом",
                 R.drawable.brud,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                54,
                 CATEGORY_ALCOHOL,
                 "Сделайте каждому игроку алкогольный коктейль",
                 R.drawable.koktel,
@@ -569,17 +569,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                55,
                 CATEGORY_ALCOHOL,
                 "Выпей рюмку с закрытыми глазами",
                 R.drawable.rumka,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                56,
                 CATEGORY_ALCOHOL,
                 "Выпей рюмку за 5 глотков",
                 R.drawable.rumka2,
@@ -589,17 +589,17 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                57,
                 CATEGORY_ALCOHOL,
                 "Выпей рюмку из рук соседа",
                 R.drawable.rumka3,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                58,
                 CATEGORY_ALCOHOL,
                 "Выпей рюмку без помощи рук",
                 R.drawable.bez_ruk,
@@ -610,17 +610,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                59,
                 CATEGORY_ALCOHOL,
                 "Сделай коктейль из всех напитков и выпей его",
                 R.drawable.koktel2,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                60,
                 CATEGORY_ALCOHOL,
                 "Выпей рюмку под столом",
                 R.drawable.pod_stol,
@@ -631,17 +631,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                61,
                 CATEGORY_ALCOHOL,
                 "Выпей, стоя в позе ласточки",
                 R.drawable.lastoch,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                62,
                 CATEGORY_ALCOHOL,
                 "Выпей лежа на полу или на диване",
                 R.drawable.lega,
@@ -652,17 +652,17 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                63,
                 CATEGORY_ALCOHOL,
                 "Разрекламировать выпиваемый напиток",
                 R.drawable.relkama2,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                64,
                 CATEGORY_ALCOHOL,
                 "Придумай 20 хвалебных описаний выпитой рюмке (содержимому)",
                 R.drawable.reklama3,
@@ -673,38 +673,38 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                65,
                 CATEGORY_ALCOHOL,
                 "Сделай рюмку из яблока или мандарина и угости каждого присутствующего из нее.",
                 R.drawable.mandarinka,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                66,
                 CATEGORY_ALCOHOL,
                 "Выйди в подъезд и выпей в нем с первым попавшимся",
                 R.drawable.v_podezd,
                 1,
-                true
+                false
             )
         )
 
         fants.add(
             Fant(
-                ++id,
+                67,
                 CATEGORY_ALCOHOL,
                 "Выпей из туфельки соседки по столу",
                 R.drawable.alcoholic_beverages,
                 1,
-                true
+                false
             )
         )
         fants.add(
             Fant(
-                ++id,
+                68,
                 CATEGORY_ALCOHOL,
                 "Вылей рюмку в тарелку и выпей  с помощью ложки",
                 R.drawable.is_tufli,
@@ -715,7 +715,7 @@ class RepositoryCategory {
 
         fants.add(
             Fant(
-                ++id,
+                69,
                 CATEGORY_ALCOHOL,
                 "Разлить всем в рюмки (бокалы) без рук",
                 R.drawable.alcoholic_beverages,
@@ -725,7 +725,7 @@ class RepositoryCategory {
         )
         fants.add(
             Fant(
-                ++id,
+                70,
                 CATEGORY_ALCOHOL,
                 "Выпей рюмку через соломинку",
                 R.drawable.solomka,

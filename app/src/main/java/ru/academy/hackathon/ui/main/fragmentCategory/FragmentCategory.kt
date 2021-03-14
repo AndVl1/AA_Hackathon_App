@@ -59,17 +59,19 @@ class FragmentCategory : Fragment() {
         }
 
         binding.toGameButton.setOnClickListener {
-            checkUsers()
+            check()
         }
     }
 
-    private fun checkUsers() {
+    private fun check() {
         val repository = (requireActivity().application as FantsApp).myComponent.userRepository
         repository.getAllUsers().observe(viewLifecycleOwner) { users ->
-            if (users.size >= 2) {
-                callback?.openGameWithFragmentCategory()
-            } else {
-                showToast(text = getString(R.string.toast_text_small_users))
+            repository.getAllFant().observe(viewLifecycleOwner){fants->
+                if(fants.isNotEmpty() && users.size >= 2){
+                    callback?.openGameWithFragmentCategory()
+                }else{
+                    showToast(text = getString(R.string.toast_text_small))
+                }
             }
         }
     }
