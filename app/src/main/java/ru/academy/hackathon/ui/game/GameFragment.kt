@@ -120,8 +120,14 @@ class GameFragment : Fragment() {
 
     private fun updateFant(){
         val index = (fantsList.indices).random()
+        Log.v("updateFant","$index")
+
         binding.gameFants.text = fantsList[index].textTask
+        Log.v("updateFant","${binding.gameFants.text}")
         downloadImage(image=fantsList[index].imageName)
+        Log.v("updateFant","${fantsList[index].imageName}")
+
+
     }
 
     private fun downloadImage(image : Int){
