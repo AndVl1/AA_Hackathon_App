@@ -14,7 +14,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Поздравлять каждого прохожего с праздником, желая всего наилучшего",
-                R.drawable.street,
+                R.drawable.neznakom,
                 1,
                 true
             )
@@ -24,7 +24,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Загадать кому-нибудь из случайных людей трудную загадку",
-                R.drawable.street,
+                R.drawable.zagadka,
                 1,
                 false
             )
@@ -34,7 +34,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Стать инициатором хоровода вокруг дерева",
-                R.drawable.street,
+                R.drawable.horovod,
                 1,
                 false
             )
@@ -44,7 +44,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Встать под деревом и поздравить людей с праздником по-президентски",
-                R.drawable.street,
+                R.drawable.i_prezident,
                 1,
                 true
             )
@@ -55,7 +55,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Выпить шампанского с понравившимся прохожим",
-                R.drawable.street,
+                R.drawable.shampan,
                 1,
                 false
             )
@@ -65,7 +65,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Дарить бенгальские огни незнакомцам, обнимая каждого из них",
-                R.drawable.street,
+                R.drawable.bengalskie_ogni,
                 1,
                 true
             )
@@ -75,7 +75,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Приставать к людям, предлагая погадать по руке",
-                R.drawable.street,
+                R.drawable.gadanie,
                 1,
                 false
             )
@@ -84,7 +84,7 @@ class RepositoryCategory {
             Fant(
                 ++id, CATEGORY_STREET,
                 "Завязать знакомство с 5 мужчинами и женщинами",
-                R.drawable.street,
+                R.drawable.znakomstvo,
                 1,
                 false
             )
@@ -94,7 +94,7 @@ class RepositoryCategory {
             Fant(
                 ++id, CATEGORY_STREET,
                 "Угощать печеньем всех встречающихся малышей",
-                R.drawable.street,
+                R.drawable.pechenie,
                 1,
                 true
             )
@@ -104,7 +104,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Получить 10 комплиментов от 5 людей противоположного пола",
-                R.drawable.street,
+                R.drawable.compliment,
                 1,
                 true
             )
@@ -114,7 +114,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Раздеться до белья, выбежать во двор и попросить у первого встречного соль",
-                R.drawable.street,
+                R.drawable.sol,
                 1,
                 false
             )
@@ -124,7 +124,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Накрасить помадой нос и сыграть Деда Мороза",
-                R.drawable.street,
+                R.drawable.ne_ded_moroz,
                 1,
                 false
             )
@@ -135,7 +135,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Зайти к каждому соседу и поздравить с праздником",
-                R.drawable.street,
+                R.drawable.sosedy,
                 1,
                 false
             )
@@ -145,7 +145,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Притвориться иностранным гражданином и пытаться узнать дорогу к посольству у проходящих мимо людей",
-                R.drawable.street,
+                R.drawable.shpion,
                 1,
                 true
             )
@@ -155,7 +155,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Броситься на шею прохожему, а потом притвориться, что обознался",
-                R.drawable.street,
+                R.drawable.oboznalsa,
                 1,
                 false
             )
@@ -165,7 +165,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Опросить прохожих, интересуясь их мечтами и планами на следующий год",
-                R.drawable.street,
+                R.drawable.mechta,
                 1,
                 true
             )
@@ -176,7 +176,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_STREET,
                 "Попросить у 5 людей противоположного пола номер телефона",
-                R.drawable.street,
+                R.drawable.telefon,
                 1,
                 false
             )
@@ -197,7 +197,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_SPORT,
                 "Изобразить как играет футболист",
-                R.drawable.push_up,
+                R.drawable.footbol,
                 1,
                 false
             )
@@ -208,7 +208,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_SPORT,
                 "Присесть 30 раз",
-                R.drawable.push_up,
+                R.drawable.prisedanie,
                 1,
                 true
             )
@@ -219,7 +219,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_SPORT,
                 "Встать на руки",
-                R.drawable.push_up,
+                R.drawable.na_rukah,
                 1,
                 true
             )
@@ -230,7 +230,7 @@ class RepositoryCategory {
                 ++id,
                 CATEGORY_SPORT,
                 "Изобразить как играет баскетболист",
-                R.drawable.push_up,
+                R.drawable.basket,
                 1,
                 false
             )
