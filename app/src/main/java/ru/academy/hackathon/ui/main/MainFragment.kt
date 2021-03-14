@@ -3,18 +3,15 @@ package ru.academy.hackathon.ui.main
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.animation.addListener
 import androidx.core.os.postDelayed
 import ru.academy.hackathon.R
 import ru.academy.hackathon.databinding.MainFragmentBinding
-import ru.academy.hackathon.databinding.UsersFragmentBinding
 
 interface CallbacksMainFragment {
     fun openSettings()
@@ -47,6 +44,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.gameRuler.setOnClickListener {
+            binding.gameRuler.isEnabled = false
             startAnimation()
             Handler().postDelayed(1500){
                 callback?.openRules()
@@ -54,6 +52,7 @@ class MainFragment : Fragment() {
         }
 
         binding.gameSettings.setOnClickListener {
+            binding.gameSettings.isEnabled=false
             startAnimation()
             Handler().postDelayed(1500){
                 callback?.openSettings()
@@ -61,6 +60,7 @@ class MainFragment : Fragment() {
         }
 
         binding.gameStart.setOnClickListener {
+            binding.gameStart.isEnabled=false
             startAnimation()
             Handler().postDelayed(1500){
                 callback?.openAddUsers()

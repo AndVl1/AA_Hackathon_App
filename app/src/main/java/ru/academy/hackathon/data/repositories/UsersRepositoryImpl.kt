@@ -61,7 +61,11 @@ class UsersRepositoryImpl(applicationContext: Context) : UserRepository {
         dao.insertFant(fant = fant)
     }
 
-    suspend fun updateFant(fant: Fant) {
+    suspend fun updateFant(fant: Fant)= withContext(dispatcher) {
         dao.updateFant(fant = fant)
+    }
+
+    suspend fun deleteFant(fant : Fant)= withContext(dispatcher){
+        dao.deleteFant(fant=fant)
     }
 }

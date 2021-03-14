@@ -33,16 +33,16 @@
             app:layout_constraintEnd_toEndOf="@id/backGroundView"
             app:layout_constraintBottom_toTopOf="@id/textView" />
 
+
     <TextView
             android:layout_width="@dimen/text_view_width"
-            android:layout_height="@dimen/text_view_height"
+            android:layout_height="wrap_content"
             android:id="@+id/textView"
             android:gravity="center"
             android:text="@string/default_title"
             android:textAppearance="@style/text_fant"
             android:scrollbars="vertical"
             android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:maxLines="6"
             app:layout_constraintStart_toStartOf="@id/backGroundView"
             app:layout_constraintEnd_toEndOf="@id/backGroundView"
             app:layout_constraintTop_toBottomOf="@id/imageView"

@@ -3,6 +3,7 @@ package ru.academy.hackathon.data.storage
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
@@ -52,4 +53,7 @@ interface UserDao {
 
     @Update
     suspend fun updateFant(fant: Fant)
+
+    @Delete
+    suspend fun deleteFant(fant : Fant)
 }
