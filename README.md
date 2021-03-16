@@ -1,2 +1,2 @@
-# Android Academy Hackethon app
+# Android Academy Hackathon app
 ## Tasks for parties
